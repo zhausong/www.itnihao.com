@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://itnihao.github.io/www/sitemap.xml 
+Sitemap: http://www.itnihao.com/sitemap.xml 
