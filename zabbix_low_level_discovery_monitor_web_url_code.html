@@ -85,6 +85,15 @@
        <li>如需重新发行，请注明以上信息，谢谢合作</li>
       </code>
       <div>
+      <p>需求：</p>
+      <p>现在有大量url需要监控，形式如http://itnihao.blog.51cto.com ，要求url状态不为200即报警。</p>
+      <p>需求详细分析：</p>
+      大量的url，且url经常变化，现在监控用的是zabbix，如果手动添加模板，会造成大量重复工作，造成人力财力的浪费，造成休息时间的浪费，得不尝失，如果利用脚本+mail，无法图形呈现
+       解决方案：
+      zabbix有discovery功能，利用此功能，即可轻松解决此问题
+zabbix客户端配置
+      </div>
+      <div>
           <img src="/static/img/blog/zabbix/low-level-discovery/web-url/1.jpg">
       </div>
       <div>
