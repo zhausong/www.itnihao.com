@@ -16,88 +16,1102 @@
       }
     </style>
     <style>
-.panel h1:hover {
-background: -webkit-linear-gradient(top, rgba(70, 70, 70, 1) 0%,rgba(111, 111, 111, 1) 70%,rgba(10, 14, 10, 1) 71%,rgba(10, 8, 9, 1) 100%);
--webkit-box-reflect: below -2px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.4, transparent), to(rgba(3,3,3,.2)));
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
--webkit-transform: translateY(-5px);
--webkit-transition: .5s;
--moz-transition: .5s;
-transition: .5s;
+<style>
+
+/* = 为节约开发时间，使用了 Bootstrap 框架构建。
+/* = 本页面所用 CSS 代码未压缩或加密，方便大家学习和研究。
+
+/* = Designed and Developed by Dandy Weng
+/* = BY-NC-SA License
+----------------------------------------------- */
+
+
+/* = 通用 Global
+----------------------------------------------- */
+body {
+	background: #e5e5e5 url(images/patterns/mooning.png);
+	overflow-x: hidden;
+	-webkit-user-select: none;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+img, p {
+	-webkit-touch-callout: none;
+}
+p {
+	font: 500 15px/1.8 'Optima','Songti SC','Verdana','Microsoft Yahei',simsun,serif;
+	cursor: default;
+}
+a:not(.btn) {
+	color: #00699E;
+	-webkit-transition: 300ms;
+	-moz-transition: 300ms;
+	transition: 300ms;
+}
+a:hover:not(.btn),
+a:active:not(.btn) {
+	color: #9E0000;
+	text-decoration: none;
+	-webkit-transform: translateY(-8px);
+	-moz-transform: translateY(-8px);
+	transform: translateY(-8px);
+}
+.padding-huge {
+	padding: 27px;
+}
+.padding-large {
+	padding: 45px;
+}
+.padding-middle {
+	padding: 25px;
+}
+.no-radius {
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;	
+}
+p.wo:first-letter {
+	font-size: 115%;
+	padding-right: 1px;	
+}
+.relative {
+	position: relative;
+}
+.button {
+	margin: 20px auto;
+}
+hr.soften {
+	height: 1px;
+	margin: 30px 0;
+	background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+	background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+	background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+	background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+	border: 0;
+}
+/* = 部件 Components
+----------------------------------------------- */
+.nav a {
+	-webkit-transition: 500ms;
+	-moz-transition: 500ms;
+	transition: 500ms;
+}
+header {
+	margin-top: 40px;	
+}
+.hero-unit {
+	background: url(/images/cover-5.jpg);
+	background-size: cover;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/cover-5.jpg', sizingMethod='scale');
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/images/cover-5.jpg', sizingMethod='scale')";
+	color: #fff;
+	height: 480px;	
+	margin-bottom: 0;
+}
+.hero-unit h1 {
+	/* font: 88px Minion,'Optima', "Times New Roman", Times, serif; */
+	text-align: center;
+	text-shadow: 1px 1px 10px black;
+}
+.hero-unit img {
+	max-width: 500px;
+	-webkit-animation: title-in 1s ease-out 0 1 forwards;
+	-webkit-transition: 500ms;
+	-moz-transition: 500ms;
+	transition: 500ms;
+
+}
+.hero-unit img:hover {
+	-webkit-transform: translateY(-5px) scale(1.05) rotate(2deg);
+	-moz-transform: translateY(-5px) scale(1.05) rotate(2deg);
+	transform: translateY(-5px) scale(1.05) rotate(2deg);
+}
+.description {
+	position: relative;
+	margin-top: -267px;
+	-webkit-animation: description-in 1s ease-out 0 1 forwards;
+}
+.description h4, 
+.description h5 {
+	cursor: default;
+}
+#loading {
+	position: relative;
+	background: -webkit-gradient( linear, left bottom, left top, color-stop(0.2, rgba(0, 0, 0, 0.8)), color-stop(0.50, rgba(0, 0, 0, 0.7)), color-stop(0.80, rgba(0, 0, 0, 0.6)) );
+	width: 100px;
+	height: 100px;
+	margin: 0px auto 80px;
+	color: #FFF;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	-webkit-box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.35), 1px 1px 50px 8px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.35), 1px 1px 50px 8px rgba(0, 0, 0, 0.4);
+	box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.35), 1px 1px 50px 8px rgba(0, 0, 0, 0.4);
+	-webkit-animation: spinner-in 1s linear 0 1 forwards;
+}
+#loading .spinner {
+	position: absolute;
+	max-width: 80px;
+	left: 10px;
+	top: -15px;
+}
+#loading span {
+	position: absolute;
+	display: block;
+	width: 100%;
+	bottom: 10px;
+	white-space: nowrap;
+	text-shadow: 1px 1px 3px #000;
+	font: 200 12px/2 'Optima','Songti SC','Verdana','Microsoft Yahei',simsun,serif;	
+	color: #E5E5E5;
+	cursor: default;
+}
+.shadow {
+	width: 100%;
+	height: 150px;
+	position: absolute;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0, 0, 0, 0.2)), color-stop(100%,rgba(255, 255, 255, 0)));
+	border-top: 1px solid #e0e0e0;	
+	z-index: -999;
+}
+img.profile {
+	max-width: 100px;
+	margin-top: 5px;
+	margin-bottom: 10px;
+	-webkit-transition: 500ms;
+	-moz-transition: 500ms;
+	transition: 500ms;
+	
+	-webkit-box-shadow: 0px 0px 2px 3px rgba(255, 255, 255, 0.7), 0px 0px 30px 8px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 0px 0px 2px 3px rgba(255, 255, 255, 0.7), 0px 0px 30px 8px rgba(0, 0, 0, 0.25);
+	box-shadow: 0px 0px 2px 3px rgba(255, 255, 255, 0.7), 0px 0px 30px 8px rgba(0, 0, 0, 0.25);
+}
+img.profile:hover {
+	-webkit-animation: profile-img-hover 1000ms ease-out 100ms infinite forwards;
+}
+img.profile:active {
+	-webkit-animation: profile-img-active 500ms linear 0 infinite forwards;
+}
+img.profile.loading {
+	/* -webkit-animation: profile-img-loading 500ms linear 0 infinite alternate; 这加载动画似乎在某些情况下会一直显示造成困扰，暂时先去掉 */
+}
+#aboutMaps small {
+	color: #969696;
+	font-size: 70%;
+}
+#aboutMaps .modal-header h3 {
+	-webkit-box-reflect: below -7px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.4, transparent), to(rgba(3,3,3,.2)));
+}
+.item {
+	max-height: 513px;
+}
+.carousel {
+	margin-bottom: 0;
+}
+#photograph .carousel-inner, 
+#photograph .carousel-inner > .item > img, 
+#photograph .carousel-inner > .item > a > img {
+	-webkit-transition: 500ms;
+	-moz-transition: 500ms;
+	transition: 500ms;		
+	-webkit-border-top-left-radius: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	-moz-border-top-left-radius: 6px;	
+	-moz-border-bottom-left-radius: 6px;
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+#photograph .carousel-inner:hover {
+	-webkit-filter: grayscale(0.8);
+	-webkit-transform: translateZ(0);
+}
+.carousel-indicators {
+	bottom: 20px;
+	right: 15px;
+	top: auto;
+}
+a.carousel-control:hover,
+a.carousel-control:focus,
+a.carousel-control {
+	color: #FFF;
+}
+.screenshots {
+	margin-top: 3px;
+	margin-left: -40px;
+}
+.screenshot-img {
+	max-width: 475px;
+}
+.iphone-mockup {
+	padding-right: 75px;
+	margin-top: 60px;
+}
+.screenshots .carousel-inner {
+	-webkit-border-bottom-right-radius: 6px;
+	-moz-border-bottom-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+.ribbon-apple {
+	position: absolute;
+	top: -5px;
+	right: 30px;
+	max-width: 70px;	
+}
+.ipad-news { 
+	max-width: 100%;
+}
+.muiti-contact {
+	font: 400 50px/1.8 'Quattrocento Sans','Optima','Songti SC','Verdana','Microsoft Yahei',simsun,serif;
+	text-align: center;
+	cursor: default;
+	color: rgba(0, 0, 0, 0.4);
+	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+	-webkit-user-select: text;
+}
+.hover {
+	color: rgba(0, 0, 0, 0.7);
+	text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.41);
+}
+.fadeout {
+	color: rgba(0, 0, 0, 0.1);
+	text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+.muiti-contact,
+.hover,
+.fadeout,
+email,
+at,
+sns,
+web {
+	-webkit-transition: all .35s linear .2s;
+	-moz-transition: all .35s linear .2s;
+	transition: all .35s linear .2s;
+}
+.sns {
+	margin: 0 auto;
+	max-width: 1040px;
+}
+.sns-container {
+	position: relative;	
+	max-width: 520px;
+	margin: 0 auto;
+}
+
+.sns-icon {
+	position: relative;
+	border-radius: 13px;
+	margin: 0 30px 60px;
+	width: 70px;
+	float: left;
+	
+	-webkit-box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.35), inset 0 -1px 0 rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .6);
+	-moz-box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.35), inset 0 -1px 0 rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .6);
+	box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.35), inset 0 -1px 0 rgba(0, 0, 0, .5), inset 0 1px 0 rgba(255, 255, 255, .6);
+ 
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+ 
+	-webkit-border-radius: 13px;
+	-moz-border-radius: 13px;
+	border-radius: 13px;
+	
+	-webkit-filter: blur(0) grayscale(0.2);
+	-webkit-transform: translateZ(0);
+}
+.sns-icon:hover {
+	-webkit-filter: none;
+	-webkit-animation: sns-icon-hover 100ms linear .8s infinite alternate;
+}
+.sns-icon:before {
+	position: absolute;
+	content: ' ';
+	width: 100%;
+	height: 50%;
+	top: 0;
+	left: 0;
+ 
+	-webkit-border-radius: 13px;
+	-moz-border-radius: 13px;
+	border-radius: 13px;
+	
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+ 
+	background: -moz-linear-gradient(top, rgba(255,255,255,0.7) 0%, rgba(255,255,255,.1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.7)), color-stop(100%,rgba(255,255,255,.1)));
+	background: linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,.1) 100%);
+}
+.sns-icon:hover:before {
+	height: 0;
+	
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+	
+	background: -moz-linear-gradient(top, rgba(255,255,255,0.3) 0%, rgba(255,255,255,.1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.3)), color-stop(100%,rgba(255,255,255,.1)));
+	background: linear-gradient(top, rgba(255,255,255,0.3) 0%,rgba(255,255,255,.1) 100%);}
+
+.sns-icon:after {
+	position: absolute;
+	content: ' ';
+	width: 100%;
+	height: 30px;
+	bottom: -31px;
+	left: 0;
+ 
+	-webkit-border-top-left-radius: 13px;
+	-webkit-border-top-right-radius: 13px;
+	-moz-border-radius-topleft: 13px;
+	-moz-border-radius-topright: 13px;
+	border-top-left-radius: 13px;
+	border-top-right-radius: 13px;
+ 
+	background: -moz-linear-gradient(top, rgba(230,230,230,.3) 0%, rgba(230,230,230,0) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(230,230,230,.3)), color-stop(100%,rgba(230,230,230,0)));
+	background: linear-gradient(top, rgba(230,230,230,.3) 0%,rgba(230,230,230,0) 100%);
+}
+.sns-icon img {
+	-webkit-box-reflect: below 5px -webkit-gradient(linear, left top, left bottom, color-stop(30%,rgba(255, 255, 255, 0.0)), color-stop(80%,rgba(255, 255, 255, 0.1)), color-stop(100%,rgba(255, 255, 255, .3)));
+}
+.sns-fadeout {
+	opacity: 0.5;
+	-webkit-filter: blur(5px) grayscale(0.6);
+}
+.ribbon-version {
+	position: absolute;
+	top: -11px;
+	right: -15px;
+	max-width: 150px;	
+}
+.img-responsive {
+	max-width: 350px;
+	-webkit-box-reflect: below -65px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.4, transparent), to(rgba(3,3,3,.2)));s
+}
+#about p:not(small) {
+	-webkit-box-reflect: below -13px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.4, transparent), to(rgba(3,3,3,.2)));
+}
+a.thumbnail {
+	color: #333;
+	text-decoration: none;
+}
+a.thumbnail:hover {
+	-webkit-box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.1),1px 1px 30px 5px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.1),1px 1px 30px 5px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 2px 8px 2px rgba(0, 0, 0, 0.1),1px 1px 30px 5px rgba(0, 0, 0, 0.2);
+	color: #333;
+
+}
+a.thumbnail img {
+	-webkit-filter: blur(1px) grayscale(0.8);
+	-webkit-transform: translateZ(0);
+	-webkit-transition: .5s;
+	-moz-transition: .5s;
+	transition: .5s;
+	
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+a.thumbnail:hover img {
+	-webkit-filter: none;
+	-webkit-transition: .5s;
+	-moz-transition: .5s;
+	transition: .5s;
+}
+a.thumbnail h3 {
+	font: 400 24.5px/1.0 'Optima','Songti SC','Verdana','Microsoft Yahei',simsun,serif;
+	-webkit-box-reflect: below -4px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.4, transparent), to(rgba(3,3,3,.2)));
+}
+a.thumbnail p {
+	font: 100 12px/1.6 'Optima','Songti SC','Verdana','Microsoft Yahei',simsun,serif;
+}
+a.thumbnail small {
+	font-size: 95%;
+}
+.statusbar {
+	position: relative;
+	height: 20px;
+	width: 100%;
+	background: #212121;
+	overflow: hidden;
+}
+/* = 框架 Panels
+----------------------------------------------- */
+.panel {
+	display: none;
+	background: #FFF url(images/patterns/white_wall_hash.png);
+	padding: 0px;
+	margin-bottom: 120px;
+	color: #333;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;/*
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .075);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0, .075);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .075);*/
+	-webkit-animation: panel-in 1s linear 0 1;
+	-webkit-box-shadow: 0px 1px 8px 1.5px rgba(0, 0, 0, .35), 0px 20px 70px 8px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow:    0px 1px 8px 1.5px rgba(0, 0, 0, .35), 0px 20px 70px 8px rgba(0, 0, 0, 0.25);
+	-ms-box-shadow:     0px 1px 8px 1.5px rgba(0, 0, 0, .35), 0px 20px 70px 8px rgba(0, 0, 0, 0.25);
+	-o-box-shadow:      0px 1px 8px 1.5px rgba(0, 0, 0, .35), 0px 20px 70px 8px rgba(0, 0, 0, 0.25);
+	box-shadow:         0px 1px 8px 1.5px rgba(0, 0, 0, .35), 0px 20px 70px 8px rgba(0, 0, 0, 0.25);
 }
 .panel h1, .panel h3 {
-cursor: default;
-background: -webkit-linear-gradient(top, rgba(70, 70, 70, 1) 0%,rgba(111, 111, 111, 1) 50%,rgba(10, 14, 10, 1) 51%,rgba(10, 8, 9, 1) 100%);
--webkit-box-reflect: below -7px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.2, transparent), to(rgba(3,3,3,.1)));
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
--webkit-transition: .5s;
--moz-transition: .5s;
-transition: .5s;
+	cursor: default;
+	background: -webkit-linear-gradient(top, rgba(70, 70, 70, 1) 0%,rgba(111, 111, 111, 1) 50%,rgba(10, 14, 10, 1) 51%,rgba(10, 8, 9, 1) 100%);
+	-webkit-box-reflect: below -7px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.2, transparent), to(rgba(3,3,3,.1)));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-transition: .5s;
+	-moz-transition: .5s;
+	transition: .5s;
 }
-h1 {
-font-size: 38.5px;
+.panel h3 {
+	-webkit-box-reflect: below -17px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.4, transparent), to(rgba(3,3,3,.2)));
 }
-h1, h2, h3 {
-line-height: 40px;
+.panel h1:hover {
+	background: -webkit-linear-gradient(top, rgba(70, 70, 70, 1) 0%,rgba(111, 111, 111, 1) 70%,rgba(10, 14, 10, 1) 71%,rgba(10, 8, 9, 1) 100%);
+	-webkit-box-reflect: below -2px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.4, transparent), to(rgba(3,3,3,.2)));	
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;	
+	-webkit-transform: translateY(-5px);
+	-webkit-transition: .5s;
+	-moz-transition: .5s;
+	transition: .5s;
 }
-h1, h2, h3, h4, h5, h6 {
-margin: 10px 0;
-font-family: inherit;
-font-weight: bold;
-line-height: 20px;
-color: inherit;
-text-rendering: optimizelegibility;
+.panel-description {
+	background: rgba(255, 255, 255, 0.80);
+	color: #333;
+	padding: 0px;
+	margin-bottom: 80px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	text-shadow: 1px 1px 2px #FFF;
+	-webkit-box-shadow: 0px 1px 8px 1.5px rgba(0, 0, 0, 0.25), 0px 20px 70px 8px rgba(0, 0, 0, 0.05); 
+	-moz-box-shadow:    0px 1px 8px 1.5px rgba(0, 0, 0, 0.25), 0px 20px 70px 8px rgba(0, 0, 0, 0.05);
+	-ms-box-shadow:     0px 1px 8px 1.5px rgba(0, 0, 0, 0.25), 0px 20px 70px 8px rgba(0, 0, 0, 0.05);  
+	-o-box-shadow:      0px 1px 8px 1.5px rgba(0, 0, 0, 0.25), 0px 20px 70px 8px rgba(0, 0, 0, 0.05);
+	box-shadow:         0px 1px 8px 1.5px rgba(0, 0, 0, 0.25), 0px 20px 70px 8px rgba(0, 0, 0, 0.05);
 }
-:-webkit-any(article,aside,nav,section) :-webkit-any(article,aside,nav,section) h1 {
-font-size: 1.17em;
--webkit-margin-before: 1em;
--webkit-margin-after: 1em;
+.panel-description h4 {
+	font: 500 18px/1.8 'Optima','Songti SC','Verdana','Microsoft Yahei',simsun,serif;
 }
-user agent stylesheet:-webkit-any(article,aside,nav,section) h1 {
-font-size: 1.5em;
--webkit-margin-before: 0.83em;
--webkit-margin-after: 0.83em;
+.panel-description h5 {
+	color: rgba(0, 0, 0, 0.6);
+	font: 400 14.5px/1.5 'Optima','Songti SC','Verdana','Microsoft Yahei',simsun,serif;
 }
-user agent stylesheeth1 {
-display: block;
-font-size: 2em;
--webkit-margin-before: 0.67em;
--webkit-margin-after: 0.67em;
--webkit-margin-start: 0px;
--webkit-margin-end: 0px;
-font-weight: bold;
+.button-text-panel a {
+	position: relative;
+	margin: 10px;
 }
-::selection {
-background: #d3d3d3;
-color: #555;
+.block-left {
+	padding: 35px 10px 15px 45px
 }
+.design {
+	padding: 0 5px 15px 45px;
+}
+.programming {
+	padding: 0 20px 10px 0;
+}
+/* = 地图效果 Map Effects
+----------------------------------------------- */
+#map {
+	height: 360px;
+	background: url(/images/map-bg.jpg);
+	background-size: cover;
+	-webkit-border-top-right-radius: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	-moz-border-top-right-radius: 6px;	
+	-moz-border-bottom-right-radius: 6px;
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	-webkit-box-shadow: 1px 1px 8px 3px rgba(0, 0, 0, 0.24) inset;
+	-moz-box-shadow: 1px 1px 8px 3px rgba(0, 0, 0, 0.24) inset;
+	box-shadow: 1px 1px 8px 3px rgba(0, 0, 0, 0.24) inset;
+}
+#map svg {
+	display: none;	
+	-webkit-animation: map-in 1s linear 0 1;
+	-webkit-border-top-right-radius: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	-moz-border-top-right-radius: 6px;	
+	-moz-border-bottom-right-radius: 6px;
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+#map path,
+#map circle {
+	-webkit-transition: all .25s linear;
+	-moz-transition: all .25s linear;
+	transition: all .25s linear;
+}
+
+/* = 字体渲染 Fonts
+----------------------------------------------- */
+/*
+@font-face {
+	font-family: Minion;
+	src: url(/fonts/MinionPro-Semibold.otf);
+}
+*/
+
+/* = IE 8 以下 IE 8 or below
+----------------------------------------------- */
+
+.ie-alert {
+	position: fixed;
+	top: 50px;
+	width: 630px;
+	z-index: 9999;	
+}
+#ie8 .panel-description {
+	background: #FFF url(images/patterns/white_wall_hash.png);	
+}
+#ie8 .hover {
+	color: #000;
+}
+#ie8 .fadeout {
+	color: #CCC;
+}
+
+/* = 响应式 Responsive
+----------------------------------------------- */
+
+@media (min-width: 1200px) {
+	.padding-huge {
+		padding: 65px;
+	}
+	.hero-unit {
+		background-position-y: 55%;
+	}
+	.panel {
+		margin-bottom: 140px;
+	}
+	.panel-description {
+		margin-bottom: 100px;
+	}
+	.description {	
+		margin-top: -245px;
+	}
+	.screenshots {
+		position: absolute;
+		margin-top: -63px;
+		margin-left: -50px;
+		width: 475px;
+	}
+	.screenshot-img {
+		max-width: 475px;
+	}
+	.iphone-mockup {
+		margin-top: 0;
+	}
+	.design {
+		padding: 0 0 25px 45px;
+	}
+	.programming {
+		padding: 0 35px 25px 0;
+	}
+	.ipad-news { 
+		max-width: 585px;
+	}
+	.ribbon-apple {
+		max-width: 80px;	
+	}
+	.sns-container {
+		float: left;
+	}
+	.sns-icon img {
+		-webkit-box-reflect: below 5px -webkit-gradient(linear, left top, left bottom, color-stop(10%,rgba(255, 255, 255, 0.0)), color-stop(80%,rgba(255, 255, 255, 0.10)), color-stop(100%,rgba(255, 255, 255, .3)));
+	}
+
+}
+ 
+@media (min-width: 768px) and (max-width: 979px) {
+	h1 {
+		font-size: 28.5px;
+	}
+	p {
+		font: 500 14px/1.8 'Optima','Songti SC','Verdana','Microsoft Yahei',simsun,serif;
+	}
+	.block-left {
+		padding: 15px 5px 10px 35px;
+	}
+	.padding-large {
+		padding: 20px;
+	}
+	.ipad-news {
+		max-width: 500px;
+		margin-left: -140px;
+	}
+	.muiti-contact {
+		font: 400 45px/1.8 'Quattrocento Sans','Optima','Songti SC','Verdana','Microsoft Yahei',simsun,serif;
+	}
+}
+
+@media (max-width: 979px) {
+	.navbar-fixed-top {
+		margin-bottom: 0;
+	}	
+	.navbar .btn-navbar {
+		position: absolute;
+		right: 10px;	
+	}
+	.collapse.in {
+		margin-top: 45px;
+	}
+	header {
+		margin-top: 0;
+	}
+	.description {
+		margin-top: -265px;
+	}
+	.panel {
+		margin-bottom: 60px;
+		overflow: hidden;
+	}
+	.panel-description {
+		margin-bottom: 60px;
+	}
+	.panel-description h4 {
+		font: 500 17px/1.8 'Optima','Songti SC','Verdana','Microsoft Yahei',simsun,serif;
+	}
+	#map {
+		height: 400px;
+	}
+	.button {
+		margin: 5px auto;
+	}
+	.screenshots {
+		margin-top: 48px;
+		margin-left: -20px;
+	}
+	.iphone-mockup  {
+		height: 500px;
+		max-width: 400px;
+		margin-top: 0;
+	}
+	.ribbon-apple {
+		max-width: 65px;
+	}
+	.ribbon-version {
+		max-width: 120px;
+	}
+}
+
+@media (max-device-width: 1024px) {
+	.sns-icon {
+		-webkit-filter: none;
+	}
+	.sns-icon:hover {
+		-webkit-filter: none;
+	}	
+	.sns-fadeout {
+		-webkit-filter: none;
+		opacity: 0.3;
+	}
+	a.thumbnail img {
+		-webkit-filter: none;
+	}
+	#photograph .carousel-inner:hover {
+		-webkit-filter: grayscale(0.8);
+		-webkit-transform: translateZ(0);
+	}
+}
+
+@media (max-width: 767px) {
+	body {
+		padding-right: 0;
+		padding-left: 0;
+	}
+	h1 {
+		font-size: 32.5px;
+	}
+	.navbar-fixed-top,
+	.navbar-fixed-bottom,
+	.navbar-static-top {
+		margin-right: 0;
+		margin-left: 0;
+	}
+	.hero-unit img {
+		max-width: 100%;
+	}
+	.description {
+		margin-top: -267px;
+	}
+	.block-left {
+		padding: 40px;
+	}
+	article.container {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	#map,
+	#map svg {
+		-webkit-border-bottom-left-radius: 6px;
+		-webkit-border-top-right-radius: 0;
+		-moz-border-bottom-left-radius: 6px;	
+		-moz-border-top-right-radius: 0;
+		border-bottom-left-radius: 6px;
+		border-top-right-radius: 0;
+	}
+	#photograph .carousel-inner, 
+	#photograph .carousel-inner > .item > img, 
+	#photograph .carousel-inner > .item > a > img {
+		-webkit-border-top-right-radius: 6px;
+		-webkit-border-bottom-left-radius: 0;
+		-moz-border-top-right-radius: 6px;
+		-moz-border-bottom-left-radius: 0;
+		border-top-right-radius: 6px;
+		border-bottom-left-radius: 0;
+	}
+	.button {
+		margin: 10px auto;
+	}
+	.screenshots {
+		position: relative;
+		margin: 20px auto 0;
+		max-width: 500px;
+	}
+	.design, 
+	.programming {
+		padding: 0 45px 0 45px;
+	}
+	.muiti-contact {
+		font: 400 40px/1.8 'Quattrocento Sans','Optima','Songti SC','Verdana','Microsoft Yahei',simsun,serif;
+	}
+	.thumbnail {
+		border: none;
+	}
+	.ipad-news {
+		display: none;
+	}
+}
+
+@media (max-width: 620px) {
+	.muiti-contact {
+		font: 400 30px/1.0 'Quattrocento Sans','Optima','Songti SC','Verdana','Microsoft Yahei',simsun,serif;
+	}
+	.sns-container {
+		max-width: 270px;
+	}	
+	.sns-icon {
+		margin: 0 10px 30px;
+		width: 45px;
+		
+		-webkit-border-radius: 8px;
+		-moz-border-radius: 8px;
+		border-radius: 8px;		
+	}
+	.sns-icon:before {
+		-webkit-border-radius: 8px;
+		-moz-border-radius: 8px;
+		border-radius: 8px;
+	}
+	
+	.sns-icon:hover:before {
+		background: -moz-linear-gradient(top, rgba(255,255,255,0.3) 0%, rgba(255,255,255,.1) 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.3)), color-stop(100%,rgba(255,255,255,.1)));
+		background: linear-gradient(top, rgba(255,255,255,0.3) 0%,rgba(255,255,255,.1) 100%);
+	}
+	.sns-icon:after {
+		-webkit-border-top-left-radius: 8px;
+		-webkit-border-top-right-radius: 8px;
+		-moz-border-radius-topleft: 8px;
+		-moz-border-radius-topright: 8px;
+		border-top-left-radius: 8px;
+		border-top-right-radius: 8px;
+	}
+}
+
+@media (max-width: 480px) {
+	.padding-large {
+		padding: 25px;
+	}
+	.hero-unit {
+		background: url(/images/cover-5-mobile.jpg);
+	}
+	.panel {
+		margin-bottom: 35px;
+	}
+	.panel-description {
+		margin-bottom: 35px;
+	}
+	.panel-description h4 {
+		font: 500 15px/1.5 'Optima','Songti SC','Verdana','Microsoft Yahei',simsun,serif;
+	}
+	.panel-description h5 {
+		color: rgba(0, 0, 0, 0.7);
+		font: 400 13.5px/1.5 'Optima','Songti SC','Verdana','Microsoft Yahei',simsun,serif;
+		text-align: left;
+		margin-top: 20px;
+	}
+	.muiti-contact {
+		font: 400 25px/1.0 'Quattrocento Sans','Optima','Songti SC','Verdana','Microsoft Yahei',simsun,serif;
+	}
+	.img-responsive {
+		max-width: 100%;
+	}
+
+}
+@media (max-width: 320px){
+	.padding-middle {
+		padding: 15px;
+	}
+	.block-left {
+		padding: 25px;
+	}
+	.hero-unit {
+		padding: 40px 0 60px;
+	}
+	.hero-unit img {
+		max-width: 280px;
+	}
+	hr.soften {
+		margin: 20px 0;
+	}
+	.description {
+		margin-top: -288px;
+	}	
+	article.container {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.panel, 
+	#map,
+	#map svg, 
+	#photograph .carousel-inner, 
+	#photograph .carousel-inner > .item > img, 
+	#photograph .carousel-inner > .item > a > img {
+		-webkit-border-radius: 0;
+		-moz-border-radius: 0;
+		border-radius: 0;
+	}
+	#map {
+		height: 230px;
+	}
+	.carousel-indicators {
+		display: none;
+	}
+	.design, 
+	.programming {
+		padding: 0 25px 0 25px;
+	}
+	.screenshots {
+		margin: 20px auto 0;
+	}
+	.muiti-contact {
+		font: 400 20px/1.0 'Quattrocento Sans','Optima','Songti SC','Verdana','Microsoft Yahei',simsun,serif;
+	}	
+}
+
+@media (max-width: 290px){
+	.hero-unit img {
+		max-width: 100%;
+	}
+}
+
+@media -webkit-min-device-pixel-ratio: 2) { 
+
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2), 
+only screen and (   min--moz-device-pixel-ratio: 2), 
+only screen and (     -o-min-device-pixel-ratio: 2/1), 
+only screen and (        min-device-pixel-ratio: 2), 
+only screen and (                min-resolution: 192dpi), 
+only screen and (                min-resolution: 2dppx) { 
+	body {
+		background: #e5e5e5 url(images/patterns/mooning@2x.png);
+		background-size: 400px 400px;
+	}
+	.panel {
+		background: #FFF url(images/patterns/white_wall_hash@2x.png);
+		background-size: 500px 500px;
+	}
+}
+
+/* = 动画 Animations
+----------------------------------------------- */
+
+@-webkit-keyframes title-in {
+	0% {
+		-webkit-transform: translateY(-50px);
+	}
+	80% { 
+		-webkit-transform: translateY(-5px);
+	}
+	90% { 
+		-webkit-transform: translateY(5px);
+	}
+	100% { 
+		-webkit-transform: translateY(0);
+	}
+}
+
+@-webkit-keyframes description-in {
+	0% {
+		-webkit-transform: translateY(90px);
+	}
+	80% { 
+		-webkit-transform: translateY(5px);
+	}
+	90% { 
+		-webkit-transform: translateY(-5px);
+	}
+	100% { 
+		-webkit-transform: translateY(0);
+	}
+}
+
+@-webkit-keyframes profile-img-hover {
+	0% {
+		-webkit-transform: rotate(0);
+	}
+	23% { 
+		-webkit-transform: rotate(18deg);
+	}
+	25% { 
+		-webkit-transform: rotate(20deg);
+	}
+	50% { 
+		-webkit-transform: rotate(0);
+	}
+	73% { 
+		-webkit-transform: rotate(-18deg);
+	}
+	75% { 
+		-webkit-transform: rotate(-20deg);
+	}
+	100% { 
+		-webkit-transform: rotate(0);
+	}
+}
+
+@-webkit-keyframes profile-img-active {
+	0% {
+		-webkit-transform: rotate(0);
+	}
+	100% { 
+		-webkit-transform: rotate(365deg);
+	}
+}
+
+@-webkit-keyframes profile-img-loading {
+	0% {
+		-webkit-filter: blur(5px);
+	}
+	100% { 
+		-webkit-filter: blur(1px);
+	}
+}
+
+@-webkit-keyframes spinner-in {
+	0% {
+		-webkit-filter: blur(5px);
+		-webkit-transform: translateY(60px);
+	}
+	100% { 
+		-webkit-filter: none;
+		-webkit-transform: translateY(0);
+	}
+}
+
+@-webkit-keyframes panel-in {
+	0% {
+		-webkit-filter: grayscale(0.8) blur(5px);
+		-webkit-transform: translateY(80px);
+	}
+	50% {
+		-webkit-filter: grayscale(0.3) blur(3px);
+		-webkit-transform: translateY(60px);
+	}
+	100% { 
+		-webkit-filter: none;
+		-webkit-transform: translateY(0);
+	}
+}
+
+@-webkit-keyframes map-in {
+	0% {
+		-webkit-filter: grayscale(0.8) blur(5px);
+	}
+	50% {
+		-webkit-filter: grayscale(0.3) blur(3px);
+	}
+	100% { 
+		-webkit-filter: none;
+	}
+}
+
+@-webkit-keyframes map-in {
+	0% {
+		-webkit-filter: grayscale(0.8) blur(5px);
+	}
+	100% { 
+		-webkit-filter: none;
+	}
+}
+
+@-webkit-keyframes sns-icon-hover {
+	0% {
+		-webkit-transform: scale(1.1) rotate(3deg) translateX(-2px);
+	}
+	100% { 
+		-webkit-transform: scale(1.1) rotate(-3deg) translateX(2px);
+	}
+}
+
+/* = 伪类 Pseudo
+----------------------------------------------- */
 ::-webkit-scrollbar {
-width: 10px;
-background: #cacaca url(/static/img/mooning.png);
-opacity: .8;
--webkit-transition: .25s;
-}
-::-webkit-scrollbar-thumb {
-background: #969696;
-border: thin solid gray;
-border-radius: 10px;
--webkit-transition: .25s;
+	width: 10px;
+	background: #cacaca url(/static/img/mooning.png);;
+	opacity: .8;	
+	-webkit-transition: .25s;
 }
 ::-webkit-scrollbar-button {
-width: 10px;
-height: 5px;
--webkit-transition: .25s;
+	width: 10px;
+	height: 5px;
+	-webkit-transition: .25s;
 }
 ::-webkit-scrollbar-track {
-background: #cacaca url(/static/img/mooning.png);
-border-radius: 10px;
--webkit-transition: .25s;
+	background: #cacaca url(/static/img/mooning.png);;
+	/* border: thin solid lightgray; 
+	box-shadow: 0px 0px 3px #dfdfdf inset; */
+	border-radius: 10px;
+	-webkit-transition: .25s;
 }
-.panel {
-color: #333;
+::-webkit-scrollbar-thumb {
+	background: #969696;
+	/* border: thin solid gray; */
+	border-radius: 10px;
+	-webkit-transition: .25s;
 }
+::-webkit-scrollbar-thumb:hover {
+	background: #7d7d7d;
+	-webkit-transition: .25s;
+}
+
+::selection {
+    background:#d3d3d3; 
+    color:#555;
+}
+
+::-moz-selection {
+    background:#d3d3d3; 
+    color:#555;
+}
+
+::-webkit-selection {
+    background:#d3d3d3; 
+    color:#555;
+}
+</style>
 
 
 </style>
