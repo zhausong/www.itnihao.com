@@ -163,7 +163,7 @@ www.qq.com
 www.baidu.com 
 www.sina.com.cn 
 </pre>
-测试：
+测试：<br/>
 <code>
 zabbix_get -s 127.0.0.1 -k web.site.discovery
 </code>
@@ -172,6 +172,12 @@ zabbix_get -s 127.0.0.1 -k web.site.discovery
       <div>
           <img src="/static/img/blog/zabbix/low-level-discovery/web-url/1.jpg">
       </div>
+      <code>
+           zabbix_get -s 127.0.0.1 -k web.site.code[www.qq.com] 
+      </code><br/>
+      此时返回状态为200<br/>
+      至此，脚本，客户端配置文件OK<br/>
+      接下来是web的添加<br/>
       <div>
           <img src="/static/img/blog/zabbix/low-level-discovery/web-url/2.jpg">
       </div>
