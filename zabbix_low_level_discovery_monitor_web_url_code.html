@@ -101,17 +101,17 @@ zabbix客户端配置
           UnsafeUserParameters=1                      #自定义key
         </code>
         <code>
-          <ul>###########自动发现脚本编写</ul>
-########################cat /etc/zabbix/scripts/web_site_code_status##############
-#!/bin/bash 
-# function:monitor tcp connect status from zabbix 
-# License: GPL 
-# mail:itnihao@qq.com 
-# version:1.0 date:2012-12-09 
-source /etc/bashrc >/dev/null 2>&1 
-source /etc/profile  >/dev/null 2>&1 
-#/usr/bin/curl -o /dev/null -s -w %{http_code} http://$1/ 
-WEB_SITE_discovery () { 
+          ###########自动发现脚本编写<br />
+########################cat /etc/zabbix/scripts/web_site_code_status##############<br />
+#!/bin/bash <br />
+# function:monitor tcp connect status from zabbix <br />
+# License: GPL <br />
+# mail:itnihao@qq.com<br /> 
+# version:1.0 date:2012-12-09 <br />
+source /etc/bashrc >/dev/null 2>&1 <br />
+source /etc/profile  >/dev/null 2>&1 <br />
+#/usr/bin/curl -o /dev/null -s -w %{http_code} http://$1/ <br />
+WEB_SITE_discovery () { <br />
 WEB_SITE=($(cat  WEB1.txt|grep -v "^#")) 
         printf '{\n' 
         printf '\t"data":[\n' 
