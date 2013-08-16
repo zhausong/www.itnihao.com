@@ -146,6 +146,27 @@ esac
 </pre>
         </doce>
       </div>
+      
+      <div>
+      客户端配置文件
+<pre>
+#########cat /etc/zabbix/zabbix_agentd.conf.d/web_site_discovery.conf  ########### 
+UserParameter=web.site.discovery,/etc/zabbix/scripts/web_site_code_status web_site_discovery  
+UserParameter=web.site.code[*],/etc/zabbix/scripts/web_site_code_status web_site_code $1  
+</pre>
+域名如下
+<pre>
+######### cat /etc/zabbix/scripts/WEB.txt########### 
+www.qq.com 
+www.baidu.com 
+www.sina.com.cn 
+</pre>
+测试：
+<code>
+zabbix_get -s 127.0.0.1 -k web.site.discovery
+</code>
+      </dvi>
+      
       <div>
           <img src="/static/img/blog/zabbix/low-level-discovery/web-url/1.jpg">
       </div>
