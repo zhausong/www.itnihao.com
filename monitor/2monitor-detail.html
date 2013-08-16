@@ -15,6 +15,92 @@
         padding-bottom: 40px;
       }
     </style>
+    <style>
+.panel h1:hover {
+background: -webkit-linear-gradient(top, rgba(70, 70, 70, 1) 0%,rgba(111, 111, 111, 1) 70%,rgba(10, 14, 10, 1) 71%,rgba(10, 8, 9, 1) 100%);
+-webkit-box-reflect: below -2px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.4, transparent), to(rgba(3,3,3,.2)));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+-webkit-transform: translateY(-5px);
+-webkit-transition: .5s;
+-moz-transition: .5s;
+transition: .5s;
+}
+.panel h1, .panel h3 {
+cursor: default;
+background: -webkit-linear-gradient(top, rgba(70, 70, 70, 1) 0%,rgba(111, 111, 111, 1) 50%,rgba(10, 14, 10, 1) 51%,rgba(10, 8, 9, 1) 100%);
+-webkit-box-reflect: below -7px -webkit-gradient(linear, 0 0, 0 100%, from(transparent), color-stop(.2, transparent), to(rgba(3,3,3,.1)));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+-webkit-transition: .5s;
+-moz-transition: .5s;
+transition: .5s;
+}
+h1 {
+font-size: 38.5px;
+}
+h1, h2, h3 {
+line-height: 40px;
+}
+h1, h2, h3, h4, h5, h6 {
+margin: 10px 0;
+font-family: inherit;
+font-weight: bold;
+line-height: 20px;
+color: inherit;
+text-rendering: optimizelegibility;
+}
+:-webkit-any(article,aside,nav,section) :-webkit-any(article,aside,nav,section) h1 {
+font-size: 1.17em;
+-webkit-margin-before: 1em;
+-webkit-margin-after: 1em;
+}
+user agent stylesheet:-webkit-any(article,aside,nav,section) h1 {
+font-size: 1.5em;
+-webkit-margin-before: 0.83em;
+-webkit-margin-after: 0.83em;
+}
+user agent stylesheeth1 {
+display: block;
+font-size: 2em;
+-webkit-margin-before: 0.67em;
+-webkit-margin-after: 0.67em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+font-weight: bold;
+}
+::selection {
+background: #d3d3d3;
+color: #555;
+}
+::-webkit-scrollbar {
+width: 10px;
+background: #cacaca url(images/patterns/mooning.png);
+opacity: .8;
+-webkit-transition: .25s;
+}
+::-webkit-scrollbar-thumb {
+background: #969696;
+border: thin solid gray;
+border-radius: 10px;
+-webkit-transition: .25s;
+}
+::-webkit-scrollbar-button {
+width: 10px;
+height: 5px;
+-webkit-transition: .25s;
+}
+::-webkit-scrollbar-track {
+background: #cacaca url(images/patterns/mooning.png);
+border-radius: 10px;
+-webkit-transition: .25s;
+}
+.panel {
+color: #333;
+}
+
+
+</style>
     <link href="//cdnjs.bootcss.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -114,8 +200,9 @@ function doWave(n)
       <div >
 	      <p href="http://www.itnihao.com/monitor/zabbix/zabbix_low_level_discovery_monitor_web_url_code.html"></p>        
       </div>
-      <div id="theDiv">
-	      <div>
+      <div ID="theDiv">
+	      </div>
+	      <h1>kuangling</h1>
 
       <hr>
 
