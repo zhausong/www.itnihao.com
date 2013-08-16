@@ -112,36 +112,36 @@ source /etc/bashrc >/dev/null 2>&1 <br />
 source /etc/profile  >/dev/null 2>&1 <br />
 #/usr/bin/curl -o /dev/null -s -w %{http_code} http://$1/ <br />
 WEB_SITE_discovery () { <br />
-WEB_SITE=($(cat  WEB1.txt|grep -v "^#")) 
-        printf '{\n' 
-        printf '\t"data":[\n' 
-for((i=0;i<${#WEB_SITE[@]};++i)) 
-{ 
-num=$(echo $((${#WEB_SITE[@]}-1))) 
-        if [ "$i" != ${num} ]; 
-                then 
-        printf "\t\t{ \n" 
-        printf "\t\t\t\"{#SITENAME}\":\"${WEB_SITE[$i]}\"},\n" 
-                else 
-                        printf  "\t\t{ \n" 
-                        printf  "\t\t\t\"{#SITENAME}\":\"${WEB_SITE[$num]}\"}]}\n" 
-        fi 
-} 
-} 
-web_site_code () { 
-/usr/bin/curl -o /dev/null -s -w %{http_code} http://$1 
-} 
-case "$1" in 
-web_site_discovery) 
-WEB_SITE_discovery 
-;; 
-web_site_code) 
-web_site_code $2 
-;; 
-*) 
-echo "Usage:$0 {web_site_discovery|web_site_code [URL]}" 
-;; 
-esac 
+WEB_SITE=($(cat  WEB1.txt|grep -v "^#")) <br />
+        printf '{\n' <br />
+        printf '\t"data":[\n'<br /> 
+for((i=0;i<${#WEB_SITE[@]};++i)) <br />
+{ <br />
+num=$(echo $((${#WEB_SITE[@]}-1))) <br />
+        if [ "$i" != ${num} ]; <br />
+                then <br />
+        printf "\t\t{ \n" <br />
+        printf "\t\t\t\"{#SITENAME}\":\"${WEB_SITE[$i]}\"},\n" <br />
+                else <br />
+                        printf  "\t\t{ \n" <br />
+                        printf  "\t\t\t\"{#SITENAME}\":\"${WEB_SITE[$num]}\"}]}\n" <br />
+        fi <br />
+} <br />
+} <br />
+web_site_code () { <br />
+/usr/bin/curl -o /dev/null -s -w %{http_code} http://$1 <br />
+} <br />
+case "$1" in <br />
+web_site_discovery) <br />
+WEB_SITE_discovery <br />
+;; <br />
+web_site_code) <br />
+web_site_code $2 <br />
+;; <br />
+*) <br />
+echo "Usage:$0 {web_site_discovery|web_site_code [URL]}" <br />
+;; <br />
+esac <br />
         </doce>
       </div>
       <div>
