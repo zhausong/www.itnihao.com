@@ -94,23 +94,23 @@
 zabbix客户端配置
       </div>
       <div>
-        <code>
-          #########cat /etc/zabbix/zabbix_agentd.conf|grep -v "^#"|grep -v "^$"##########<br />
-          ##此处省略N多信息，<br />
-          Include=/etc/zabbix/zabbix_agentd.conf.d/   #配置文件路径<br />
-          UnsafeUserParameters=1                      #自定义key<br />
-        </code>
+<pre>
+#########cat /etc/zabbix/zabbix_agentd.conf|grep -v "^#"|grep -v "^$"##########
+##此处省略N多信息，
+Include=/etc/zabbix/zabbix_agentd.conf.d/   #配置文件路径
+UnsafeUserParameters=1                      #自定义key
+</pre>
         <code>
         <pre>
 ###########自动发现脚本编写
 ########################cat /etc/zabbix/scripts/web_site_code_status##############
 #!/bin/bash 
-# function:monitor tcp connect status from zabbix 
+# function:monitor web site code status from zabbix 
 # License: GPL 
-# mail:itnihao@qq.com 
+# mail:admin#itnihao.com 
 # version:1.0 date:2012-12-09 
-source /etc/bashrc >/dev/null 2>&1 
-source /etc/profile  >/dev/null 2>&1 
+     source /etc/bashrc >/dev/null 2>&1 
+    source /etc/profile  >/dev/null 2>&1 
 #/usr/bin/curl -o /dev/null -s -w %{http_code} http://$1/ 
 WEB_SITE_discovery () { 
 WEB_SITE=($(cat  WEB1.txt|grep -v "^#")) 
@@ -120,27 +120,27 @@ for((i=0;i<${#WEB_SITE[@]};++i))
 { 
 num=$(echo $((${#WEB_SITE[@]}-1))) 
         if [ "$i" != ${num} ]; 
-                then 
-        printf "\t\t{ \n" 
-        printf "\t\t\t\"{#SITENAME}\":\"${WEB_SITE[$i]}\"},\n" 
-                else 
-                        printf  "\t\t{ \n" 
-                        printf  "\t\t\t\"{#SITENAME}\":\"${WEB_SITE[$num]}\"}]}\n" 
+        then 
+            printf "\t\t{ \n" 
+            printf "\t\t\t\"{#SITENAME}\":\"${WEB_SITE[$i]}\"},\n" 
+        else 
+            printf  "\t\t{ \n" 
+            printf  "\t\t\t\"{#SITENAME}\":\"${WEB_SITE[$num]}\"}]}\n" 
         fi 
 } 
 } 
 web_site_code () { 
-/usr/bin/curl -o /dev/null -s -w %{http_code} http://$1 
+        /usr/bin/curl -o /dev/null -s -w %{http_code} http://$1 
 } 
 case "$1" in 
 web_site_discovery) 
-WEB_SITE_discovery 
+        WEB_SITE_discovery 
 ;; 
 web_site_code) 
-web_site_code $2 
+        web_site_code $2 
 ;; 
 *) 
-echo "Usage:$0 {web_site_discovery|web_site_code [URL]}" 
+        echo "Usage:$0 {web_site_discovery|web_site_code [URL]}" 
 ;; 
 esac 
 </pre>
