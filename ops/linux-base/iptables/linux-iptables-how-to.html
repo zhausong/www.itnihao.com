@@ -95,7 +95,9 @@
 iptable只读取数据包头，不会给信息流增加负担，也无需进行验证。
 1. 术语解释
    DNAT：Destination Network Address Translation 目标网络地址转换。 DNAT是一种改变数据包目的ip地址的技术，经常和
-SNAT联用，以使多台服务器能共享一个ip地址连入Internet，并且继续服务。通过对同一个 ip地址分配不同的端口，来决定数据的流向。SNATSource Network Address Translation源网络地址转换。这是一种改变数据包源ip地址的技术， 经常用来使多台计算机分享一个Internet地址。这只在IPv4中使用，因为IPv4的地址已快用完了，IPv6将解 决这个问题。
+SNAT联用，以使多台服务器能共享一个ip地址连入Internet，并且继续服务。通过对同一个 ip地址分配不同的端口，来决定数据的
+流向。SNATSource Network Address Translation源网络地址转换。这是一种改变数据包源ip地址的技术， 经常用来使多台计算机
+分享一个Internet地址。这只在IPv4中使用，因为IPv4的地址已快用完了，IPv6将解 决这个问题。
 2. iptable 概述
 2.1. iptable的链和表结构
 <img src="/static/img/blog/ops/linux-base/iptables/1.png">
