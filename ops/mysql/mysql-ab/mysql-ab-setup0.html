@@ -85,9 +85,46 @@
 
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div >
-	      <p><a href="http://www.itnihao.com/ops//linux-base/iptables/linux-iptables-how-to.html">iptables 详细的使用指南</a></p>        
-      	      <p><a href="http://www.itnihao.com/ops//linux-base/vim/linux-base-vim-130-command.html">超过 130 个你需要了解的 vim 命令</a></p>
-      	      <p><a href="http://www.ruanyifeng.com/blog/2013/08/linux_boot_process.html">[阮一峰]Linux 的启动流程</a></p>
+      <h1>mysql 主从同步原理</h1>
+        <pre>
+        	Replication 线程
+　 　Mysql的 Replication 是一个异步的复制过程，从一个 Mysql instace(我们称之为 Master)复制到另一个 Mysql instance(
+我们称之 Slave)。在 Master 与 Slave 之间的实现整个复制过程主要由三个线程来完成，其中两个线程(Sql线程和IO线程)
+　 　在 Slave 端，另外一个线程(IO线程)在 Master 端。
+　　要实现 MySQL 的 Replication ，首先必须打开 Master 端的Binary Log(mysql-bin.xxxxxx)功能，否则无法实现。因为整个
+复制过程实际上就是Slave从Master端获取该日志然后再在自己身上完全 顺序的执行日志中所记录的各种操作。打开 MySQL 的
+Binary Log 可以通过在启动 MySQL Server 的过程中使用 “—log-bin” 参数选项，或者在 my.cnf 配置文件中的 mysqld 参
+数组([mysqld]标识后的参数部分)增加 “log-bin” 参数项。
+　　MySQL 复制的基本过程如下：
+　　1. Slave 上面的IO线程连接上 Master，并请求从指定日志文件的指定位置(或者从最开始的日志)之后的日志内容;
+　  2. Master 接收到来自 Slave 的 IO 线程的请求后，通过负责复制的 IO 线程根据请求信息读取指定日志指定位置之后的日
+　 　志信息，返回给 Slave 端的 IO 线程。返回信息中除了日志所包含的信息之外，还包括本次返回的信息在 Master 端的 
+　 　Binary Log 文件的名称以及在 Binary Log 中的位置;
+　　3. Slave 的 IO 线程接收到信息后，将接收到的日志内容依次写入到 Slave 端的Relay Log文件(mysql-relay-bin.xxxxxx)
+　　的最末端，并将读取到的Master端的bin-log的文件名和位置记录到master- info文件中，以便在下一次读取的时候能够清楚
+　　的高速Master“我需要从某个bin-log的哪个位置开始往后的日志内容，请发给我”
+　 　4. Slave 的 SQL 线程检测到 Relay Log 中新增加了内容后，会马上解析该 Log 文件中的内容成为在 Master 端真实执行
+　 　时候的那些可执行的 Query 语句，并在自身执行这些 Query。这样，实际上就是在 Master 端和 Slave 端执行了同样的
+　 　Query，所以两端的数据是完全一样的。
+　　实际上，在老版本中，MySQL 的复制实现在 Slave 端并不是由 SQL 线程和 IO 线程这两个线程共同协作而完成的，而是由
+　　单独的一个线程来完成所有的工作。但是 MySQL 的工程师们很快发现，这样做存在很大的风险和性能问题，主要如下：
+　 　首先，如果通过一个单一的线程来独立实现这个工作的话，就使复制 Master 端的，Binary Log日志，以及解析这些日志，
+　 　然后再在自身执行的这个过程成为一个串行的过程，性能自然会受到较大的限制，这种架构下的 Replication 的延迟自然
+　 　就比较长了。
+　 　其次，Slave 端的这个复制线程从 Master 端获取 Binary Log 过来之后，需要接着解析这些内容，还原成 Master 端所
+　 　执行的原始 Query，然后在自身执行。在这个过程中，Master端很可能又已经产生了大量的变化并生成了大量的 Binary Log
+　 　信息。如果在这个阶段 Master 端的存储系统出现了无法修复的故障，那么在这个阶段所产生的所有变更都将永远的丢失，
+　 　无法再找回来。这种潜在风险在Slave 端压力比较大的时候尤其突出，因为如果 Slave 压力比较大，解析日志以及应用这
+　 　些日志所花费的时间自然就会更长一些，可能丢失的数据也就会更多。
+　 　所以，在后期的改造中，新版本的 MySQL 为了尽量减小这个风险，并提高复制的性能，将 Slave 端的复制改为两个线程来
+　 　完成，也就是前面所提到的 SQL 线程和 IO 线程。最早提出这个改进方案的是Yahoo!的一位工程师“Jeremy Zawodny”。通
+　 　过这样的改造，这样既在很大程度上解决了性能问题，缩短了异步的延时时间，同时也减少了潜在的数据丢失量。
+　　当然，即使是换成了现在这样两个线程来协作处理之后，同样也还是存在 Slave 数据延时以及数据丢失的可能性的，毕竟这
+　　个复制是异步的。只要数据的更改不是在一个事务中，这些问题都是存在的。
+　　如果要完全避免这些问题，就只能用 MySQL 的 Cluster 来解决了。不过 MySQL的 Cluster 知道笔者写这部分内容的时候，
+　　仍然还是一个内存数 据库的解决方案，也就是需要将所有数据包括索引全部都 Load 到内存中，这样就对内存的要求就非
+　　常大的大，对于一般的大众化应用来说可实施性并不是太大。当然，在之前与 MySQL 的 CTO David 交流的时候得知，MySQL 现在正在不断改进其 Cluster 的实现，其中非常大的一个改动就是允许数据不用全部 Load 到内存中，而仅仅只是索引全部 Load 到内存中，我想信在完成该项改造之后的 MySQL Cluster 将会更加受人欢迎，可实施性也会更大。
+        </pre>
       </div>
 
 
