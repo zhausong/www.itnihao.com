@@ -282,6 +282,18 @@ upstream lb {
 }
       	</pre>
       </div>
+      <div>
+      	<h1>
+      		nginx防盗链
+      	</h1>
+      	<pre class="prettyprint">
+      	location / {
+            valid_referers none blocked www.test.com;
+        if ($invalid_referer) {
+             return   403;
+        }
+      	</pre>
+      </div>
 
 
       <hr>
