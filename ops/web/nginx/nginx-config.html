@@ -293,7 +293,7 @@ upstream lb {
              return   403;
         }
       	</pre>
-      	<font color="blue" size="16px">
+      	<font color="blue" size="12px">
 这里只有一个重要的指令valid_referers:<br/>
 这个指令在referer头的基础上为 $invalid_referer 变量赋值，其值为0或1。<br/>
 可以使用这个指令来实现防盗链功能，如果valid_referers列表中没有Referer头的值， $invalid_referer将被设置为1。<br/>
