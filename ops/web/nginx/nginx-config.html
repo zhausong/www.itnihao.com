@@ -34,7 +34,7 @@
 
   <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
+     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -45,36 +45,36 @@
           <a class="brand" href="#">opsadmin</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="active"><a href="/">Ê×Ò³</a></li>
-              <li><a href="/opsadmin/opsadmin-detail.html">opsadmin¿ªÔ´ÔËÎ¬Æ½Ì¨</a></li>
+              <li class="active"><a href="/">é¦–é¡µ</a></li>
+              <li><a href="/opsadmin/opsadmin-detail.html">opsadminå¼€æºè¿ç»´å¹³å°</a></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">ÏµÍ³ÔËÎ¬ <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">ç³»ç»Ÿè¿ç»´ <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">linux»ù´¡</a></li>
-                  <li><a href="#">linux½ø½×</a></li>
-                  <li><a href="#">linux¸ß¼¶</a></li>
+                  <li><a href="#">linuxåŸºç¡€</a></li>
+                  <li><a href="#">linuxè¿›é˜¶</a></li>
+                  <li><a href="#">linuxé«˜çº§</a></li>
                   <li class="divider"></li>
-                  <li class="nav-header">web·şÎñ</li>
+                  <li class="nav-header">webæœåŠ¡</li>
                   <li><a href="#">nginx</a></li>
                   <li><a href="#">apache</a></li>
                   <li class="divider"></li>
-                  <li class="nav-header">»º´æ</li>
+                  <li class="nav-header">ç¼“å­˜</li>
                   <li><a href="#">squid</a></li>
                   <li><a href="#">varnish</a></li>                  
                   <li class="divider"></li>
-                  <li class="nav-header">ÆäËû</li>
-                  <li><a href="#">¼à¿Ø</a></li>
-                  <li><a href="#">µ÷ÓÅ</a></li>
+                  <li class="nav-header">å…¶ä»–</li>
+                  <li><a href="http://www.itnihao.com/monitor/monitor-detail.html">ç›‘æ§</a></li>
+                  <li><a href="#">è°ƒä¼˜</a></li>
                 </ul>
               </li>
-              <li><a href="http://itnihao.blog.51cto.com/"  target="_blank">ÎÒµÄ51cto²©¿Í</a></li>
-              <li><a href="#about">¹ØÓÚ</a></li>
-              <li><a href="#contact">ÁªÏµ</a></li>
+              <li><a href="http://itnihao.blog.51cto.com/"  target="_blank">æˆ‘çš„51ctoåšå®¢</a></li>
+              <li><a href="#about">å…³äº</a></li>
+              <li><a href="#contact">è”ç³»</a></li>
             </ul>
             <form class="navbar-form pull-right">
-              <input class="span2" type="text" placeholder="ÓÃ»§">
-              <input class="span2" type="password" placeholder="ÃÜÂë">
-              <button type="submit" class="btn">µÇÂ¼</button>
+              <input class="span2" type="text" placeholder="ç”¨æˆ·">
+              <input class="span2" type="password" placeholder="å¯†ç ">
+              <button type="submit" class="btn">ç™»å½•</button>
             </form>
           </div><!--/.nav-collapse -->
         </div>
@@ -85,42 +85,43 @@
 
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div >
+            <h1>webè¿ç»´ç¬¬ä¸€ç¯‡:nginxé…ç½®æ–‡ä»¶è¯¦è§£ç¬”è®°</h1>
 	    <pre>
-#¶¨ÒåNginxÔËĞĞµÄÓÃ»§ºÍÓÃ»§×é
+#å®šä¹‰Nginxè¿è¡Œçš„ç”¨æˆ·å’Œç”¨æˆ·ç»„
 user www www;
-#nginx½ø³ÌÊı£¬½¨ÒéÉèÖÃÎªµÈÓÚCPU×ÜºËĞÄÊı¡£
+#nginxè¿›ç¨‹æ•°ï¼Œå»ºè®®è®¾ç½®ä¸ºç­‰äºCPUæ€»æ ¸å¿ƒæ•°ã€‚
 worker_processes 8;
-#È«¾Ö´íÎóÈÕÖ¾¶¨ÒåÀàĞÍ£¬[ debug | info | notice | warn | error | crit ]
+#å…¨å±€é”™è¯¯æ—¥å¿—å®šä¹‰ç±»å‹ï¼Œ[ debug | info | notice | warn | error | crit ]
 error_log /var/log/nginx/error.log info;
-#½ø³ÌÎÄ¼ş
+#è¿›ç¨‹æ–‡ä»¶
 pid /var/run/nginx.pid;
-#Ò»¸önginx½ø³Ì´ò¿ªµÄ×î¶àÎÄ¼şÃèÊö·ûÊıÄ¿£¬ÀíÂÛÖµÓ¦¸ÃÊÇ×î¶à´ò¿ªÎÄ¼şÊı£¨ÏµÍ³µÄÖµulimit -n£©Óënginx½ø³ÌÊıÏà³ı£¬µ«ÊÇnginx·ÖÅäÇëÇó²¢²»¾ùÔÈ£¬ËùÒÔ½¨ÒéÓëulimit -nµÄÖµ±£³ÖÒ»ÖÂ¡£
+#ä¸€ä¸ªnginxè¿›ç¨‹æ‰“å¼€çš„æœ€å¤šæ–‡ä»¶æè¿°ç¬¦æ•°ç›®ï¼Œç†è®ºå€¼åº”è¯¥æ˜¯æœ€å¤šæ‰“å¼€æ–‡ä»¶æ•°ï¼ˆç³»ç»Ÿçš„å€¼ulimit -nï¼‰ä¸nginxè¿›ç¨‹æ•°ç›¸é™¤ï¼Œä½†æ˜¯nginxåˆ†é…è¯·æ±‚å¹¶ä¸å‡åŒ€ï¼Œæ‰€ä»¥å»ºè®®ä¸ulimit -nçš„å€¼ä¿æŒä¸€è‡´ã€‚
 worker_rlimit_nofile 65535;
-#¹¤×÷Ä£Ê½ÓëÁ¬½ÓÊıÉÏÏŞ
+#å·¥ä½œæ¨¡å¼ä¸è¿æ¥æ•°ä¸Šé™
 events
 {
-    #²Î¿¼ÊÂ¼şÄ£ĞÍ£¬use [ kqueue | rtsig | epoll | /dev/poll | select | poll ]; epollÄ£ĞÍÊÇLinux 2.6ÒÔÉÏ°æ±¾ÄÚºËÖĞµÄ¸ßĞÔÄÜÍøÂçI/OÄ£ĞÍ£¬Èç¹ûÅÜÔÚFreeBSDÉÏÃæ£¬¾ÍÓÃkqueueÄ£ĞÍ¡£
+    #å‚è€ƒäº‹ä»¶æ¨¡å‹ï¼Œuse [ kqueue | rtsig | epoll | /dev/poll | select | poll ]; epollæ¨¡å‹æ˜¯Linux 2.6ä»¥ä¸Šç‰ˆæœ¬å†…æ ¸ä¸­çš„é«˜æ€§èƒ½ç½‘ç»œI/Oæ¨¡å‹ï¼Œå¦‚æœè·‘åœ¨FreeBSDä¸Šé¢ï¼Œå°±ç”¨kqueueæ¨¡å‹ã€‚
     use epoll;
-    #µ¥¸ö½ø³Ì×î´óÁ¬½ÓÊı£¨×î´óÁ¬½ÓÊı=Á¬½ÓÊı*½ø³ÌÊı£©
+    #å•ä¸ªè¿›ç¨‹æœ€å¤§è¿æ¥æ•°ï¼ˆæœ€å¤§è¿æ¥æ•°=è¿æ¥æ•°*è¿›ç¨‹æ•°ï¼‰
     worker_connections 65535;
 }
 
-#Éè¶¨http·şÎñÆ÷
+#è®¾å®šhttpæœåŠ¡å™¨
 http
 {
-    include mime.types; #ÎÄ¼şÀ©Õ¹ÃûÓëÎÄ¼şÀàĞÍÓ³Éä±í
-    default_type application/octet-stream; #Ä¬ÈÏÎÄ¼şÀàĞÍ
-    #charset utf-8; #Ä¬ÈÏ±àÂë
-    server_names_hash_bucket_size 128; #·şÎñÆ÷Ãû×ÖµÄhash±í´óĞ¡
-    client_header_buffer_size 32k; #ÉÏ´«ÎÄ¼ş´óĞ¡ÏŞÖÆ
-    large_client_header_buffers 4 64k; #Éè¶¨ÇëÇó»º
-    client_max_body_size 8m; #Éè¶¨ÇëÇó»º
-    sendfile on; #¿ªÆô¸ßĞ§ÎÄ¼ş´«ÊäÄ£Ê½£¬sendfileÖ¸ÁîÖ¸¶¨nginxÊÇ·ñµ÷ÓÃsendfileº¯ÊıÀ´Êä³öÎÄ¼ş£¬¶ÔÓÚÆÕÍ¨Ó¦ÓÃÉèÎª on£¬Èç¹ûÓÃÀ´½øĞĞÏÂÔØµÈÓ¦ÓÃ´ÅÅÌIOÖØ¸ºÔØÓ¦ÓÃ£¬¿ÉÉèÖÃÎªoff£¬ÒÔÆ½ºâ´ÅÅÌÓëÍøÂçI/O´¦ÀíËÙ¶È£¬½µµÍÏµÍ³µÄ¸ºÔØ¡£×¢Òâ£ºÈç¹ûÍ¼Æ¬ÏÔÊ¾²»Õı³£°ÑÕâ¸ö¸Ä³Éoff¡£
-    autoindex on; #¿ªÆôÄ¿Â¼ÁĞ±í·ÃÎÊ£¬ºÏÊÊÏÂÔØ·şÎñÆ÷£¬Ä¬ÈÏ¹Ø±Õ¡£
-    tcp_nopush on; #·ÀÖ¹ÍøÂç×èÈû
-    tcp_nodelay on; #·ÀÖ¹ÍøÂç×èÈû
-    keepalive_timeout 120; #³¤Á¬½Ó³¬Ê±Ê±¼ä£¬µ¥Î»ÊÇÃë
-    #FastCGIÏà¹Ø²ÎÊıÊÇÎªÁË¸ÄÉÆÍøÕ¾µÄĞÔÄÜ£º¼õÉÙ×ÊÔ´Õ¼ÓÃ£¬Ìá¸ß·ÃÎÊËÙ¶È¡£ÏÂÃæ²ÎÊı¿´×ÖÃæÒâË¼¶¼ÄÜÀí½â¡£
+    include mime.types; #æ–‡ä»¶æ‰©å±•åä¸æ–‡ä»¶ç±»å‹æ˜ å°„è¡¨
+    default_type application/octet-stream; #é»˜è®¤æ–‡ä»¶ç±»å‹
+    #charset utf-8; #é»˜è®¤ç¼–ç 
+    server_names_hash_bucket_size 128; #æœåŠ¡å™¨åå­—çš„hashè¡¨å¤§å°
+    client_header_buffer_size 32k; #ä¸Šä¼ æ–‡ä»¶å¤§å°é™åˆ¶
+    large_client_header_buffers 4 64k; #è®¾å®šè¯·æ±‚ç¼“
+    client_max_body_size 8m; #è®¾å®šè¯·æ±‚ç¼“
+    sendfile on; #å¼€å¯é«˜æ•ˆæ–‡ä»¶ä¼ è¾“æ¨¡å¼ï¼ŒsendfileæŒ‡ä»¤æŒ‡å®šnginxæ˜¯å¦è°ƒç”¨sendfileå‡½æ•°æ¥è¾“å‡ºæ–‡ä»¶ï¼Œå¯¹äºæ™®é€šåº”ç”¨è®¾ä¸º onï¼Œå¦‚æœç”¨æ¥è¿›è¡Œä¸‹è½½ç­‰åº”ç”¨ç£ç›˜IOé‡è´Ÿè½½åº”ç”¨ï¼Œå¯è®¾ç½®ä¸ºoffï¼Œä»¥å¹³è¡¡ç£ç›˜ä¸ç½‘ç»œI/Oå¤„ç†é€Ÿåº¦ï¼Œé™ä½ç³»ç»Ÿçš„è´Ÿè½½ã€‚æ³¨æ„ï¼šå¦‚æœå›¾ç‰‡æ˜¾ç¤ºä¸æ­£å¸¸æŠŠè¿™ä¸ªæ”¹æˆoffã€‚
+    autoindex on; #å¼€å¯ç›®å½•åˆ—è¡¨è®¿é—®ï¼Œåˆé€‚ä¸‹è½½æœåŠ¡å™¨ï¼Œé»˜è®¤å…³é—­ã€‚
+    tcp_nopush on; #é˜²æ­¢ç½‘ç»œé˜»å¡
+    tcp_nodelay on; #é˜²æ­¢ç½‘ç»œé˜»å¡
+    keepalive_timeout 120; #é•¿è¿æ¥è¶…æ—¶æ—¶é—´ï¼Œå•ä½æ˜¯ç§’
+    #FastCGIç›¸å…³å‚æ•°æ˜¯ä¸ºäº†æ”¹å–„ç½‘ç«™çš„æ€§èƒ½ï¼šå‡å°‘èµ„æºå ç”¨ï¼Œæé«˜è®¿é—®é€Ÿåº¦ã€‚ä¸‹é¢å‚æ•°çœ‹å­—é¢æ„æ€éƒ½èƒ½ç†è§£ã€‚
     fastcgi_connect_timeout 300;
     fastcgi_send_timeout 300;
     fastcgi_read_timeout 300;
@@ -128,42 +129,42 @@ http
     fastcgi_buffers 4 64k;
     fastcgi_busy_buffers_size 128k;
     fastcgi_temp_file_write_size 128k;
-    #gzipÄ£¿éÉèÖÃ
-    gzip on; #¿ªÆôgzipÑ¹ËõÊä³ö
-    gzip_min_length 1k; #×îĞ¡Ñ¹ËõÎÄ¼ş´óĞ¡
-    gzip_buffers 4 16k; #Ñ¹Ëõ»º³åÇø
-    gzip_http_version 1.0; #Ñ¹Ëõ°æ±¾£¨Ä¬ÈÏ1.1£¬Ç°¶ËÈç¹ûÊÇsquid2.5ÇëÊ¹ÓÃ1.0£©
-    gzip_comp_level 2; #Ñ¹ËõµÈ¼¶
+    #gzipæ¨¡å—è®¾ç½®
+    gzip on; #å¼€å¯gzipå‹ç¼©è¾“å‡º
+    gzip_min_length 1k; #æœ€å°å‹ç¼©æ–‡ä»¶å¤§å°
+    gzip_buffers 4 16k; #å‹ç¼©ç¼“å†²åŒº
+    gzip_http_version 1.0; #å‹ç¼©ç‰ˆæœ¬ï¼ˆé»˜è®¤1.1ï¼Œå‰ç«¯å¦‚æœæ˜¯squid2.5è¯·ä½¿ç”¨1.0ï¼‰
+    gzip_comp_level 2; #å‹ç¼©ç­‰çº§
     gzip_types text/plain application/x-javascript text/css application/xml;
-    #Ñ¹ËõÀàĞÍ£¬Ä¬ÈÏ¾ÍÒÑ¾­°üº¬text/html£¬ËùÒÔÏÂÃæ¾Í²»ÓÃÔÙĞ´ÁË£¬Ğ´ÉÏÈ¥Ò²²»»áÓĞÎÊÌâ£¬µ«ÊÇ»áÓĞÒ»¸öwarn¡£
+    #å‹ç¼©ç±»å‹ï¼Œé»˜è®¤å°±å·²ç»åŒ…å«text/htmlï¼Œæ‰€ä»¥ä¸‹é¢å°±ä¸ç”¨å†å†™äº†ï¼Œå†™ä¸Šå»ä¹Ÿä¸ä¼šæœ‰é—®é¢˜ï¼Œä½†æ˜¯ä¼šæœ‰ä¸€ä¸ªwarnã€‚
     gzip_vary on;
-    gzip_disable     "MSIE [1-6]\.";  #ie6ÒÔÏÂµÄ°æ±¾²»¿ªÆôÑ¹Ëõ
-    #limit_zone crawler $binary_remote_addr 10m; #¿ªÆôÏŞÖÆIPÁ¬½ÓÊıµÄÊ±ºòĞèÒªÊ¹ÓÃ
+    gzip_disable     "MSIE [1-6]\.";  #ie6ä»¥ä¸‹çš„ç‰ˆæœ¬ä¸å¼€å¯å‹ç¼©
+    #limit_zone crawler $binary_remote_addr 10m; #å¼€å¯é™åˆ¶IPè¿æ¥æ•°çš„æ—¶å€™éœ€è¦ä½¿ç”¨
 
 upstream www.itnihao.com {
-    #upstreamµÄ¸ºÔØ¾ùºâ£¬weightÊÇÈ¨ÖØ£¬¿ÉÒÔ¸ù¾İ»úÆ÷ÅäÖÃ¶¨ÒåÈ¨ÖØ¡£weigth²ÎÊı±íÊ¾È¨Öµ£¬È¨ÖµÔ½¸ß±»·ÖÅäµ½µÄ¼¸ÂÊÔ½´ó¡£
+    #upstreamçš„è´Ÿè½½å‡è¡¡ï¼Œweightæ˜¯æƒé‡ï¼Œå¯ä»¥æ ¹æ®æœºå™¨é…ç½®å®šä¹‰æƒé‡ã€‚weigthå‚æ•°è¡¨ç¤ºæƒå€¼ï¼Œæƒå€¼è¶Šé«˜è¢«åˆ†é…åˆ°çš„å‡ ç‡è¶Šå¤§ã€‚
     server 10.10.10.10:80 weight=3 max_fails=2 fail_timeout=30s;
     server 10.10.10.11:80 weight=4 max_fails=2 fail_timeout=30s;
     server 10.10.10.12:80 weight=3 max_fails=2 fail_timeout=30s;
 }
 
 
-#ĞéÄâÖ÷»úµÄÅäÖÃ
+#è™šæ‹Ÿä¸»æœºçš„é…ç½®
 server
 {
-    #¼àÌı¶Ë¿Ú
+    #ç›‘å¬ç«¯å£
     listen 80;
-    #ÓòÃû¿ÉÒÔÓĞ¶à¸ö£¬ÓÃ¿Õ¸ñ¸ô¿ª
+    #åŸŸåå¯ä»¥æœ‰å¤šä¸ªï¼Œç”¨ç©ºæ ¼éš”å¼€
     server_name www.itnihao.com itnihao.com;
     index index.html index.htm index.php;
     root /data/web/www;
-    #·ÀÖ¹ÏµÍ³Ä¿Â¼±»·ÃÎÊ
+    #é˜²æ­¢ç³»ç»Ÿç›®å½•è¢«è®¿é—®
     location ~ (/.svn/|etc/passwd|etc/shadow|etc/group|etc/gshadow|etc/sudoers|nginx/nginx.conf|etc/my.cnf|sshd_config|ifconfig|bin/rm|bin/mkdir|bin/rmdir|bin/touch|usr/bin/vim|rsync.conf|redis.conf)
     {
         deny all;
     }
 
-    #php½âÎö
+    #phpè§£æ
     location ~ .*.(php|php5)?$
     {
         #fastcgi_pass   unix:/tmp/fpm.sock;
@@ -174,72 +175,70 @@ server
 
     }
    
-    #ÈÕÖ¾¸ñÊ½Éè¶¨
+    #æ—¥å¿—æ ¼å¼è®¾å®š
     log_format access '$remote_addr - $remote_user [$time_local] "$request" '
     '$status $body_bytes_sent "$http_referer" '
     '"$http_user_agent" $http_x_forwarded_for';
-    #¶¨Òå±¾ĞéÄâÖ÷»úµÄ·ÃÎÊÈÕÖ¾
+    #å®šä¹‰æœ¬è™šæ‹Ÿä¸»æœºçš„è®¿é—®æ—¥å¿—
     access_log /var/log/nginx/www.itnihao.com.access.log access;
-    #¶Ô "/" ÆôÓÃ·´Ïò´úÀí
+    #å¯¹ "/" å¯ç”¨åå‘ä»£ç†
     location / {
-        #Èç¹ûºó¶ËµÄ·şÎñÆ÷·µ»Ø502£¬504£¬Ö´ĞĞ³¬Ê±µÈ´íÎó£¬×Ô¶¯½«ÇëÇó×ª·¢µ½upstream¸ºÔØ¾ùºâ³ØÖĞµÄÁíÒ»Ì¨·şÎñÆ÷£¬ÊµÏÖ¹ÊÕÏ×ªÒÆ
+        #å¦‚æœåç«¯çš„æœåŠ¡å™¨è¿”å›502ï¼Œ504ï¼Œæ‰§è¡Œè¶…æ—¶ç­‰é”™è¯¯ï¼Œè‡ªåŠ¨å°†è¯·æ±‚è½¬å‘åˆ°upstreamè´Ÿè½½å‡è¡¡æ± ä¸­çš„å¦ä¸€å°æœåŠ¡å™¨ï¼Œå®ç°æ•…éšœè½¬ç§»
         proxy_next_upstream http_502 http_504 error timeout invalid_header;
-        #´úÀíµÄ·şÎñÆ÷³ØÃû³Æ
+        #ä»£ç†çš„æœåŠ¡å™¨æ± åç§°
         proxy_pass http://www.itnihao.com;
         proxy_redirect off;
         proxy_set_header X-Real-IP $remote_addr;
-        #ºó¶ËµÄWeb·şÎñÆ÷¿ÉÒÔÍ¨¹ıX-Forwarded-For»ñÈ¡ÓÃ»§ÕæÊµIP
+        #åç«¯çš„WebæœåŠ¡å™¨å¯ä»¥é€šè¿‡X-Forwarded-Forè·å–ç”¨æˆ·çœŸå®IP
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        #ÒÔÏÂÊÇÒ»Ğ©·´Ïò´úÀíµÄÅäÖÃ£¬¿ÉÑ¡¡£
+        #ä»¥ä¸‹æ˜¯ä¸€äº›åå‘ä»£ç†çš„é…ç½®ï¼Œå¯é€‰ã€‚
         proxy_set_header Host $host;
-        client_max_body_size 10m; #ÔÊĞí¿Í»§¶ËÇëÇóµÄ×î´óµ¥ÎÄ¼ş×Ö½ÚÊı
-        client_body_buffer_size 128k; #»º³åÇø´úÀí»º³åÓÃ»§¶ËÇëÇóµÄ×î´ó×Ö½ÚÊı£¬
-        proxy_connect_timeout 90; #nginx¸úºó¶Ë·şÎñÆ÷Á¬½Ó³¬Ê±Ê±¼ä(´úÀíÁ¬½Ó³¬Ê±)
-        proxy_send_timeout 90; #ºó¶Ë·şÎñÆ÷Êı¾İ»Ø´«Ê±¼ä(´úÀí·¢ËÍ³¬Ê±)
-        proxy_read_timeout 90; #Á¬½Ó³É¹¦ºó£¬ºó¶Ë·şÎñÆ÷ÏìÓ¦Ê±¼ä(´úÀí½ÓÊÕ³¬Ê±)
-        proxy_buffer_size 4k; #ÉèÖÃ´úÀí·şÎñÆ÷£¨nginx£©±£´æÓÃ»§Í·ĞÅÏ¢µÄ»º³åÇø´óĞ¡
-        proxy_buffers 4 32k; #proxy_buffers»º³åÇø£¬ÍøÒ³Æ½¾ùÔÚ32kÒÔÏÂµÄÉèÖÃ
-        proxy_busy_buffers_size 64k; #¸ß¸ººÉÏÂ»º³å´óĞ¡£¨proxy_buffers*2£©
+        client_max_body_size 10m; #å…è®¸å®¢æˆ·ç«¯è¯·æ±‚çš„æœ€å¤§å•æ–‡ä»¶å­—èŠ‚æ•°
+        client_body_buffer_size 128k; #ç¼“å†²åŒºä»£ç†ç¼“å†²ç”¨æˆ·ç«¯è¯·æ±‚çš„æœ€å¤§å­—èŠ‚æ•°ï¼Œ
+        proxy_connect_timeout 90; #nginxè·Ÿåç«¯æœåŠ¡å™¨è¿æ¥è¶…æ—¶æ—¶é—´(ä»£ç†è¿æ¥è¶…æ—¶)
+        proxy_send_timeout 90; #åç«¯æœåŠ¡å™¨æ•°æ®å›ä¼ æ—¶é—´(ä»£ç†å‘é€è¶…æ—¶)
+        proxy_read_timeout 90; #è¿æ¥æˆåŠŸåï¼Œåç«¯æœåŠ¡å™¨å“åº”æ—¶é—´(ä»£ç†æ¥æ”¶è¶…æ—¶)
+        proxy_buffer_size 4k; #è®¾ç½®ä»£ç†æœåŠ¡å™¨ï¼ˆnginxï¼‰ä¿å­˜ç”¨æˆ·å¤´ä¿¡æ¯çš„ç¼“å†²åŒºå¤§å°
+        proxy_buffers 4 32k; #proxy_buffersç¼“å†²åŒºï¼Œç½‘é¡µå¹³å‡åœ¨32kä»¥ä¸‹çš„è®¾ç½®
+        proxy_busy_buffers_size 64k; #é«˜è´Ÿè·ä¸‹ç¼“å†²å¤§å°ï¼ˆproxy_buffers*2ï¼‰
         proxy_temp_file_write_size 64k;
-        #Éè¶¨»º´æÎÄ¼ş¼Ğ´óĞ¡£¬´óÓÚÕâ¸öÖµ£¬½«´Óupstream·şÎñÆ÷´«
+        #è®¾å®šç¼“å­˜æ–‡ä»¶å¤¹å¤§å°ï¼Œå¤§äºè¿™ä¸ªå€¼ï¼Œå°†ä»upstreamæœåŠ¡å™¨ä¼ 
     }
-    #Éè¶¨²é¿´Nginx×´Ì¬µÄµØÖ·
+    #è®¾å®šæŸ¥çœ‹NginxçŠ¶æ€çš„åœ°å€
     location /NginxStatus {
         stub_status on;
         access_log off;
         #auth_basic "NginxStatus";
         #auth_basic_user_file conf/htpasswd;
-        #htpasswdÎÄ¼şµÄÄÚÈİ¿ÉÒÔÓÃapacheÌá¹©µÄhtpasswd¹¤¾ßÀ´²úÉú¡£
+        #htpasswdæ–‡ä»¶çš„å†…å®¹å¯ä»¥ç”¨apacheæä¾›çš„htpasswdå·¥å…·æ¥äº§ç”Ÿã€‚
         allow 127.0.0.1;
         allow 192.168.11.0/24;
         deny all; 
     }
-    #php-fpmµÄ×´Ì¬²é¿´
-    #ĞèÒª¿ªÆôphp-fpm.confÖĞµÄpm.status_path = /phpfpmstatus
+    #php-fpmçš„çŠ¶æ€æŸ¥çœ‹
+    #éœ€è¦å¼€å¯php-fpm.confä¸­çš„pm.status_path = /phpfpmstatus
     location ~ ^/(phpfpmstatus)$ {
         include fastcgi_params;
         fastcgi_pass unix:/tmp/fpm.sock;
         fastcgi_param SCRIPT_FILENAME $fastcgi_script_name;
     }
 
-    #±¾µØ¶¯¾²·ÖÀë·´Ïò´úÀíÅäÖÃ
-    #ËùÓĞjspµÄÒ³Ãæ¾ù½»ÓÉtomcat»òresin´¦Àí
+    #æœ¬åœ°åŠ¨é™åˆ†ç¦»åå‘ä»£ç†é…ç½®
+    #æ‰€æœ‰jspçš„é¡µé¢å‡äº¤ç”±tomcatæˆ–resinå¤„ç†
     location ~ .(jsp|jspx|do)?$ {
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_pass http://127.0.0.1:8080;
     }
-    #ËùÓĞ¾²Ì¬ÎÄ¼şÓÉnginxÖ±½Ó¶ÁÈ¡²»¾­¹ıtomcat»òresin
+    #æ‰€æœ‰é™æ€æ–‡ä»¶ç”±nginxç›´æ¥è¯»å–ä¸ç»è¿‡tomcatæˆ–resin
     location ~ .*.(htm|html|gif|jpg|jpeg|png|bmp|swf|ioc|rar|zip|txt|flv|mid|doc|ppt|pdf|xls|mp3|wma)$
         {
         expires 15d;
     }
    }
 }
-
-
-            </pre>   
+       </pre>   
       </div>
 
 
