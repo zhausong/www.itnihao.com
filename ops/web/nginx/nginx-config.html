@@ -293,6 +293,7 @@ upstream lb {
              return   403;
         }
       	</pre>
+      	<font color="blue">
 这里只有一个重要的指令valid_referers:<br/>
 这个指令在referer头的基础上为 $invalid_referer 变量赋值，其值为0或1。<br/>
 可以使用这个指令来实现防盗链功能，如果valid_referers列表中没有Referer头的值， $invalid_referer将被设置为1。<br/>
@@ -300,6 +301,7 @@ upstream lb {
 none意为不存在的Referer头<br/>
 blocked意为根据防火墙伪装Referer头，如：“Referer: XXXXXXX”。<br/>
 server_names为一个或多个服务器的列表，0.5.33版本以后可以在名称中使用“*”通配符<br/>
+〈/font〉
       </div>
 
 
