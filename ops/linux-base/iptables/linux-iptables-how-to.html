@@ -85,8 +85,10 @@
 
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div>
+      <h1>iptables 详细的使用指南</h1>
+      <a href="http://www.linuxde.net/2013/06/14620.htm">本文为转载，原文地址为地址</a>
         <pre>
-        	Linux系统中,防火墙(Firewall),网址转换(NAT),数据包(package)记录,流量统计,这些功能是由Netfilter子系统所提供的，而iptables是控制Netfilter的工具。iptables将许多复杂的规则组织成成容易控制的方式，以便管理员可以进行分组测试，或关闭、启动某组规则。
+      Linux系统中,防火墙(Firewall),网址转换(NAT),数据包(package)记录,流量统计,这些功能是由Netfilter子系统所提供的，而iptables是控制Netfilter的工具。iptables将许多复杂的规则组织成成容易控制的方式，以便管理员可以进行分组测试，或关闭、启动某组规则。
 iptable能够为Unix、Linux和BSD个人工作站创建一个防火墙，也可以为一个子网创建防火墙以保护其它的系统平台。iptable只读取数据包头，不会给信息流增加负担，也无需进行验证。
 1. 术语解释
 DNATDestination Network Address Translation 目标网络地址转换。 DNAT是一种改变数据包目的ip地址的技术，经常和SNAT联用，以使多台服务器能共享一个ip地址连入Internet，并且继续服务。通过对同一个 ip地址分配不同的端口，来决定数据的流向。SNATSource Network Address Translation源网络地址转换。这是一种改变数据包源ip地址的技术， 经常用来使多台计算机分享一个Internet地址。这只在IPv4中使用，因为IPv4的地址已快用完了，IPv6将解 决这个问题。
