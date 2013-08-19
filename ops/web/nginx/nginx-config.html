@@ -287,12 +287,27 @@ upstream lb {
       		nginx防盗链
       	</h1>
       	<pre class="prettyprint">
-      	location / {
-            valid_referers none blocked www.test.com;
+server {
+        listen 80;
+        server_name www.itnihao.com;
+        charset utf-8;
+        root /var/web/www;
+        index index.php;
+
+        location / {
+        valid_referers none blocked www.itnihao.com;
+
         if ($invalid_referer) {
-             return   403;
+             return   411;
+           }
         }
+}
       	</pre>
+      	用curl测试
+      	<code>curl http://www.itnihao.com  -A "user_agentd" -e "http://www.itnihao.com"</code>
+      	返回200
+      	<code>curl http://www.itnihao.com  -A "user_agentd" -e "http://www.itnihao.net"</code>
+      	返回411
       	<font color="blue">
 这里只有一个重要的指令valid_referers:<br/>
 这个指令在referer头的基础上为 $invalid_referer 变量赋值，其值为0或1。<br/>
