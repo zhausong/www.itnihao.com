@@ -303,11 +303,11 @@ server {
         }
 }
       	</pre>
-      	用curl测试
-      	<code>curl http://www.itnihao.com  -A "user_agentd" -e "http://www.itnihao.com"</code>
-      	返回200
-      	<code>curl http://www.itnihao.com  -A "user_agentd" -e "http://www.itnihao.net"</code>
-      	返回411
+      	用curl测试<br/>
+      	<code>curl http://www.itnihao.com  -A "user_agentd" -e "http://www.itnihao.com"</code><br/>
+      	返回200<br/>
+      	<code>curl http://www.itnihao.com  -A "user_agentd" -e "http://www.itnihao.net"</code><br/>
+      	返回411<br/>
       	<font color="blue">
 这里只有一个重要的指令valid_referers:<br/>
 这个指令在referer头的基础上为 $invalid_referer 变量赋值，其值为0或1。<br/>
