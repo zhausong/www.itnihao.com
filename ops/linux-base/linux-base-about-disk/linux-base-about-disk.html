@@ -89,8 +89,8 @@
 
 那么文件系统是如何运行的呢？这与操作系统的文件数据有关。较新的操作系统的文件数据除了文件实际内容外， 通常含有非常多<br/>
 的属性，例如 Linux 操作系统的文件权限(rwx)与文件属性(拥有者、群组、时间参数等)。 文件系统通常会将这两部份的数据分别<br/>
-存放在不同的区块，权限与属性放置到<strong> inode </strong> 中，至于实际数据则放置到 data block 区块中。 另外，还有一个超级区块       <br/>
-(superblock) 会记录整个文件系统的整体信息，包括 inode 与 block 的总量、使用量、剩余量等。                          <br/>
+存放在不同的区块，权限与属性放置到<strong> inode </strong> 中，至于实际数据则放置到<strong> data block </strong>区块中。 另外，还有一个超级区块       <br/>
+<strong>(superblock)</strong> 会记录整个文件系统的整体信息，包括 inode 与 block 的总量、使用量、剩余量等。                          <br/>
              
 每个 inode 与 block 都有编号，至于这三个数据的意义可以简略说明如下：                                               <br/>
 <code>
