@@ -86,21 +86,23 @@
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div >
 <h2>磁盘相关</h2>
-<code>
+
 那么文件系统是如何运行的呢？这与操作系统的文件数据有关。较新的操作系统的文件数据除了文件实际内容外， 通常含有非常多<br/>
 的属性，例如 Linux 操作系统的文件权限(rwx)与文件属性(拥有者、群组、时间参数等)。 文件系统通常会将这两部份的数据分别<br/>
 存放在不同的区块，权限与属性放置到 inode 中，至于实际数据则放置到 data block 区块中。 另外，还有一个超级区块       <br/>
 (superblock) 会记录整个文件系统的整体信息，包括 inode 与 block 的总量、使用量、剩余量等。                          <br/>
              
 每个 inode 与 block 都有编号，至于这三个数据的意义可以简略说明如下：                                               <br/>
-
+<code>
 superblock：记录此 filesystem 的整体信息，包括inode/block的总量、使用量、剩余量， 以及文件系统的格式与相关信息等； <br/>
 inode：记录文件的属性，一个文件占用一个inode，同时记录此文件的数据所在的 block 号码；                              <br/>
 block：实际记录文件的内容，若文件太大时，会占用多个 block 。                                                       <br/>
+</code>
+
 由于每个 inode 与 block 都有编号，而每个文件都会占用一个 inode ，inode 内则有文件数据放置的 block 号码。 因此，我们<br/>
 可以知道的是，如果能够找到文件的 inode 的话，那么自然就会知道这个文件所放置数据的 block 号码， 当然也就能够读出该文<br/>
 件的实际数据了。这是个比较有效率的作法，因为如此一来我们的磁盘就能够在短时间内读取出全部的数据， 读写的效能比较好啰。<br/>
-</code>
+
 
 <h2>lvm相关</h2>
 [root@www ~]# pvcreate /dev/md0                  <==建立PV <br/>
