@@ -164,6 +164,7 @@ server
         deny all;
     }
 
+
     #php解析
     location ~ .*.(php|php5)?$
     {
@@ -203,6 +204,13 @@ server
         proxy_busy_buffers_size 64k; #高负荷下缓冲大小（proxy_buffers*2）
         proxy_temp_file_write_size 64k;
         #设定缓存文件夹大小，大于这个值，将从upstream服务器传
+        
+        if ($http_user_agent ~ (curl|LWP::Simple|winhttp|clshttp|HTTrack|harvest|nsauditor|dirbuster|pangolin|nmap|sqlninja|grendel-scan|hydra|perl|HTMLParser|libwww|BBBike|sqlmap|w3af|owasp|Nikto|fimap|havij|PycURL|sae|zmeu|BabyKrokodil|python|netsparker|httperf|ApacheBench|webbench|JoeDog))
+        {
+              return 443;
+        }
+        #拒绝非法浏览器访问
+        
     }
     #设定查看Nginx状态的地址
     location /NginxStatus {
