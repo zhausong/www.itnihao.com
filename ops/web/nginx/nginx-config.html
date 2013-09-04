@@ -339,6 +339,13 @@ server_names为一个或多个服务器的列表，0.5.33版本以后可以在�
 </div>
 
 <div>
+ <h3>测试url返回状态</h3>
+ <code>
+ 	curl -o /dev/null -s -w %{http_code} http://www.itnihao.com <br/>
+ </code>
+</div>
+
+<div>
 <h3>tcp连接状态</h3>
 <font color="blue">
 CLOSED：无连接是活动的或正在进行<br/>
