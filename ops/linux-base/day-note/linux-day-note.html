@@ -87,22 +87,21 @@
       <div >
 
     1.发送邮件并带附件 
+    1.发送邮件并带附件 
 <br/>
 <pre style="width:99%;height:46px">
     <ol class="dp-xml list-paddingleft-2">
         <li class="alt">
-            
+            <p>
                 <span style="color:#ff0000">echo</span><span style="color:#0000ff"> &quot;test&quot;|<span style="color:#ff0000">mail -s</span> &quot;itnihaotest&quot;<span style="color:#ff0000"> -a</span> /etc/passwd itnihao@qq.com </span>
-            <br/>
+            </p>
         </li>
     </ol>
 </pre>
-
     注意：此命令在mailx-8.1.1（rhel5.X）版本上不能运行，在mailx-12.2(rhel6.X)可以运行
-<br/>
-
+<br>
     2.加到 /etc/bashrc，将用户的操作命令记录系统日志syslog，添加完毕source /etc/bashrc
-<br/>
+</br>
 <pre style="width:99%;height:46px">
     <ol class="dp-xml list-paddingleft-2">
         <li class="alt">
