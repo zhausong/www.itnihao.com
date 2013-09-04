@@ -87,127 +87,199 @@
       <div >
 
    1.发送邮件并带附件<br/>
+<code>
 echo "test"|mail -s "itnihaotest" -a /etc/passwd itnihao@qq.com <br/>
 注意：此命令在mailx-8.1.1（rhel5.X）版本上不能运行，在mailx-12.2(rhel6.X)可以运行<br/>
+</code>
 2.加到 /etc/bashrc，将用户的操作命令记录系统日志syslog，添加完毕source /etc/bashrc<br/>
+<code>
 PROMPT_COMMAND='{ msg=$(history 1 | { read x y; echo $y; });user=$(whoami); logger $(date "+%Y-%m-%d %H:%M:%S"):$user:$msg:$(who am i); }'<br/>
+</code>
 下面的命令也有相同作用<br/>
+<code>
 PROMPT_COMMAND='history -a >(tee -a ~/.bash_history | logger -t "$USER[$$] $SSH_CONNECTION")'<br/>
+</code>
 3.mysql备份指定字符集<br/>
+<code>
 mysqldump -uroot --default-character-set=utf8  -p vw>vw.sql  <br/>
+</code>
 4.踢出系统中已经登录的用户<br/>
+<code>
 pkill -kill -t pts/0 <br/>
+</code>
 5.安装dz提示无法连接到/etc/mysql.sock<br/>
 Can't connect to local MySQL server through socket '/etc/mysql.sock' (2)  <br/>
+<code>
 ln -s /tmp/mysql.sock /etc/mysql.sock<br/>
+</code>
 6.mysql密码漏洞链接<br/>
+<code>
 http://www.sunchangming.com/blog/?p=4260<br/>
 http://seclists.org/oss-sec/2012/q2/493 <br/>
 http://www.freebuf.com/vuls/3815.html <br/>
 https://github.com/rapid7/metasploit-framework/blob/master/modules/auxiliary/scanner/mysql/mysql_authbypass_hashdump.rb<br/>
+</code>
 7.sudo命令的执行 用来排除不允许执行的命令<br/>
+<code>
 root    ALL=(ALL)       ALL admin   ALL=(root)      NOPASSWD: ALL admin   ALL=(root)      NOPASSWD: !/sbin/fdisk,!/sbin/iptables<br/>
+</code>
 8.清除dmesg信息<br/>
+<code>
 dmesg -c <br/>
+</code>
 9查看apache404的资源<br/>
+<code>
 awk '$9 ~ 404{print $7}' /usr/local/apache2/logs/access_log|sort -nr|uniq <br/>
+</code>
 10硬盘相关测试<br/>
+<code>
 hdparm -t /dev/sda              读取速度测试<br/>
 hdparm  -I /dev/sda|grep Serial 序列号<br/>
+</code>
 11清除僵尸进程<br/>
-`ps -ef | grep '<defunct>'|grep -v grep |awk '{print $2,$3}'|sed "s/^/kill -9<br/>
- /g"` <br/>
+<code>
+`ps -ef | grep '<defunct>'|grep -v grep |awk '{print $2,$3}'|sed "s/^/kill -9/g"` <br/>
+</code>
 12查看tcp连接数<br/>
+<code>
 netstat -n|grep ^tcp|awk '{print $NF}'|sort -nr|uniq -c <br/>
+</code>
 13. 查找替换文件<br/>
+<code>
 find /tmp  -name "*.*" -print|xargs -i sed -i "s/aaa/bbb/g" {} <br/>
+</code>
 14.tcpdump抓vlan数据包<br/>
+<code>
 tcpdump -n -q -i eth0 vlan and src host 10.10.10.10 and dst host 20.20.20.20 and tcp[20:4]=0x47455420 -XX -s 250  <br/>
 tcpdump -n -q -i eth2 tcp[20:4]=0x47455420 -XX -s 0<br/>
+</code>
 15.ip138查ip地址接口<br/>
+<code>
 http://ip138.com/ips1388.asp?<br/>
 nagios插件<br/>
 centreon使用中文<br/>
 http://code.google.com/p/cacti-nagios/downloads/list<br/>
+</code>
 16解压rpm包<br/>
+<code>
 rpm2cpio httpd-2.2.3-45.el5.x86_64.rpm | cpio -div<br/>
+</code>
 17xen  loop设备不够用<br/>
+<code>
 Xen虚拟机Linux下的loop设备增加  http://blog.csdn.net/jackxinxu2100/article/details/4957508<br/>
 <br/>
+</code>
 18 mysql分页显示<br/>
+<code>
 mysql>pager less; 设置分页显示变量 <br/>
 mysql>show processlist\g; 接\g参数 <br/>
 mysql>nopager; 取消分页显示 <br/>
-119查看tcp连接数状态信息<br/>
+</code>
+19查看tcp连接数状态信息<br/>
+<code>
 netstat -an|awk '/^tcp/ {++S[$NF]} END {for(a in S) {printf "%11-s %s\n", a,S[a]}}' <br/>
+</code>
 20unrar<br/>
+<code>
 http://www.rarlab.com/rar/rarlinux-x64-4.2.0.tar.gz<br/>
+</code>
 21批量删除海量文件<br/>
+<code>
 rsync --delete-before -a -H -v --progress --stats 空文件夹/  目标文件夹/ <br/>
+</code>
 22给某个终端用户发送消息<br/>
+<code>
 #write admin pts/2  #admin用户所在的终端未pts/2 <br/>
 输入文件内容，对方显示 <br/>
+</code>
 23linux挂载windows共享<br/>
+<code>
 mount -o username=123,password=123 //172.18.0.10/file /mnt/file <br/>
+</code>
 24vim取消选择亮色<br/>
+<code>
 不退出VIM时，取消高亮一直生效:set nohlsearch只是取消上次查找内容的高亮，下次查找会再次高亮:nohlsearch <br/>
+</code>
 25 ntfs-3g<br/>
+<code>
 http://www.tuxera.com/community/ntfs-3g-download/ <br/>
+</code>
 26  centos5.5  ext4的支持<br/>
+<code>
 yum -y install e4fsprogs <br/>
+</code>
 27 获取本机ip地址<br/>
+<code>
 ip a|awk -F "inet|/"  '/inet.*brd/ {print $2}' <br/>
 ifconfig |awk -F 'inet addr:|Bcast:'  '/Bcast:/{print $2}'<br/>
 http://www.iqm.cn<br/>
+<code>
 28 改变终端提示符颜色<br/>
+<code>
 export PS1='[\[$(tput bold)$(tput setb 4)$(tput setaf 1)\]\u@\h ~ \A \[$(tput bold)$(tput setb 4)$(tput setaf 2)\]\w\[$(tput bold)$(tput setb 4)$(tput setaf 7)\]]\[$(tput bold)$(tput setb 4)$(tput setaf 6)\]\#\$\[$(tput bold)$(tput setb 4)$(tput setaf 7)\]'<br/>
+</code>
 29 记录用户操作日志<br/>
+<code>
 export PROMPT_COMMAND='{ msg=$(history 1 | { read x y; echo $y; });logger "[hostname- $(hostname)]": "[euid=$(whoami)]":$(who am i):[`pwd`]:"$msg"; }'<br/>
+</code>
 30.windows git<br/>
+<code>
 http://code.google.com/p/tortoisegit/<br/>
 https://code.google.com/p/msysgit/<br/>
+</code>
 31软件下载地址<br/>
+<code>
 resin<br/>
 http://www.caucho.com/download/download-archive/<br/>
 http://bgp.he.net<br/>
 http://www.freelancer.com   国外外赚的一个网站，留着以后看看<br/>
+</code>
 32 查看被删除的，但进程在使用中的文件<br/>
+<code>
 lsof | awk '$9~/^\// && $7 > 10000000'|grep deleted <br/>
 http://support.ipmonitor.com/mibs/IANA-LANGUAGE-MIB/item.aspx<br/>
+</code>
 33 子网掩码计算工具<br/>
+<code>
 <br/>
 http://mirrors.sohu.com/ubuntu/pool/universe/n/netmask/ <br/>
+</code>
 34 新浪ip地址解析接口<br/>
+<code>
 http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=123.124.2.85<br/>
+</code>
 35.rpm官方资料<br/>
+<code>
 http://docs.fedoraproject.org/en-US/Fedora_Draft_Documentation/0.1/html/RPM_Guide/index.html<br/>
 <br/>
-<br/>
+</code>
 zabbix资料<br/>
+<code>
 http://blog.sina.com.cn/s/blog_704836f40101g0fb.html<br/>
 http://wenku.baidu.com/view/2491ee0a4a7302768e993968.html<br/>
 <br/>
-<br/>
+</code>
 35.mysql删除bing-log<br/>
-1<br/>
-2<br/>
-3<br/>
+<code>
 PURGE MASTER LOGS TO 'mysql-bin.010';<br/>
 PURGE MASTER LOGS BEFORE '20013-04-02 22:46:26';<br/>
 PURGE MASTER LOGS BEFORE DATE_SUB(CURRENT_DATE, INTERVAL 3 DAY);<br/>
 <br/>
+</code>
 36 netmask ip地址计算工具<br/>
+<code>
 http://mirrors.sohu.com/ubuntu/pool/universe/n/netmask/netmask_2.3.12.tar.gz<br/>
+</code>
 37 查找僵尸进程<br/>
+<code>
 http://inbank2012.blog.51cto.com/6302802/1094008<br/>
+</code>
 38 linux下乱码文件的删除<br/>
-1<br/>
-2<br/>
-3<br/>
+<code>
 shell#ls -i     #找出i节点后删除<br/>
 15899955 ?=x^??????S?E??<br/>
 shell#find  ./  -inum 15899955  -print  -exec  rm {} -rf \;<br/>
-
+</code>
       </div>
 
 
