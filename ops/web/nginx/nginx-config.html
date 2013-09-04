@@ -331,7 +331,7 @@ server_names为一个或多个服务器的列表，0.5.33版本以后可以在�
  <h3>nginx连接状态解释</h3>
  <font color="blue">
  Active connections    //当前 Nginx 正处理的活动连接数。<br/>
- server accepts handledrequests //总共处理了多少个连接 , 成功创建多少次握手,总共处理了多少个请求。<br/>
+ server accepts handled  requests //总共处理了多少个连接 , 成功创建多少次握手,总共处理了多少个请求。<br/>
  Reading //nginx 读取到客户端的 Header 信息数。<br/>
  Writing //nginx 返回给客户端的 Header 信息数。<br/>
  Waiting //开启 keep-alive 的情况下，这个值等于 active – (reading + writing)，意思就是 Nginx 已经处理完正在等候下一次请求指令的驻留连接<br/>
