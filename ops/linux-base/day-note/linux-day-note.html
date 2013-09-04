@@ -213,7 +213,7 @@ yum -y install e4fsprogs <br/>
 ip a|awk -F "inet|/"  '/inet.*brd/ {print $2}' <br/>
 ifconfig |awk -F 'inet addr:|Bcast:'  '/Bcast:/{print $2}'<br/>
 http://www.iqm.cn<br/>
-<code>
+</code>
 28 改变终端提示符颜色<br/>
 <code>
 export PS1='[\[$(tput bold)$(tput setb 4)$(tput setaf 1)\]\u@\h ~ \A \[$(tput bold)$(tput setb 4)$(tput setaf 2)\]\w\[$(tput bold)$(tput setb 4)$(tput setaf 7)\]]\[$(tput bold)$(tput setb 4)$(tput setaf 6)\]\#\$\[$(tput bold)$(tput setb 4)$(tput setaf 7)\]'<br/>
