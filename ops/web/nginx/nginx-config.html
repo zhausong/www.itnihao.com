@@ -360,6 +360,10 @@ CLOSING：两边同时尝试关闭 <br/>
 TIME_WAIT：另一边已初始化一个释放 <br/>
 LAST_ACK：等待所有分组死掉 <br/>
 </font>
+<h4>统计tcp连接状态数</h4>
+ <code>
+       netstat -n|awk '/^tcp/ {++S[$NF]} END {for (a in S) print a,S[a]}'<br/>
+ </code>
 </dvi>
       </div>
 
