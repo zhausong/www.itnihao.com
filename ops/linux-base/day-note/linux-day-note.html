@@ -277,6 +277,15 @@ shell#ls -i     #找出i节点后删除<br/>
 15899955 ?=x^??????S?E??<br/>
 shell#find  ./  -inum 15899955  -print  -exec  rm {} -rf \;<br/>
 </code>
+
+39 vim编辑文件技巧<br/>
+<code>
+编辑 .vimrc 配置文件，添加下面这句：<br/>
+
+cmap w!! %!sudo tee > /dev/null %<br/>
+编辑只读系统文件的时候，你只需要输入 :w!! （输快点），然后根据提示按 L 就搞定了。<br/>
+比手动打这么长一串的字符好多了吧？<br/>
+</code>
       </div>
 
 
