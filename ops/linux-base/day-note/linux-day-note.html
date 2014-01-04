@@ -300,6 +300,14 @@ date -d "$(date)" +%s <br/>
 数值转换为时间格式
 date -d @1383290746.294  "+%Y-%m-%d"
 </code>
+43 linux线程数量的支持</br>
+系统限制：</br>
+<code></code>
+/proc/sys/kernel/pid_max， </br>
+/proc/sys/kernel/thread-max， </br>
+max_user_process（ulimit -u）， </br>
+/proc/sys/vm/max_map_count。 </br>
+</code>
       </div>
 
 
