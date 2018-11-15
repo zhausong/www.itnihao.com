@@ -63,7 +63,7 @@
                   <li><a href="#">varnish</a></li>                  
                   <li class="divider"></li>
                   <li class="nav-header">其他</li>
-                  <li><a href="http://www.itnihao.com/monitor/monitor-detail.html">监控</a></li>
+                  <li><a href="https://www.itnihao.com/monitor/monitor-detail.html">监控</a></li>
                   <li><a href="#">调优</a></li>
                 </ul>
               </li>
@@ -187,7 +187,7 @@ server
         #如果后端的服务器返回502，504，执行超时等错误，自动将请求转发到upstream负载均衡池中的另一台服务器，实现故障转移
         proxy_next_upstream http_502 http_504 error timeout invalid_header;
         #代理的服务器池名称
-        proxy_pass http://www.itnihao.com;
+        proxy_pass https://www.itnihao.com;
         proxy_redirect off;
         proxy_set_header X-Real-IP $remote_addr;
         #后端的Web服务器可以通过X-Forwarded-For获取用户真实IP
@@ -312,9 +312,9 @@ server {
 }
       	</pre>
       	用curl测试<br/>
-      	<code>curl http://www.itnihao.com  -A "user_agentd" -e "http://www.itnihao.com"</code><br/>
+      	<code>curl https://www.itnihao.com  -A "user_agentd" -e "https://www.itnihao.com"</code><br/>
       	返回200<br/>
-      	<code>curl http://www.itnihao.com  -A "user_agentd" -e "http://www.itnihao.net"</code><br/>
+      	<code>curl https://www.itnihao.com  -A "user_agentd" -e "http://www.itnihao.net"</code><br/>
       	返回411<br/>
       	<font color="blue">
 这里只有一个重要的指令valid_referers:<br/>
@@ -342,7 +342,7 @@ server_names为一个或多个服务器的列表，0.5.33版本以后可以在�
 <div>
  <h3>测试url返回状态</h3>
  <code>
- 	curl -o /dev/null -s -w %{http_code} http://www.itnihao.com <br/>
+ 	curl -o /dev/null -s -w %{http_code} https://www.itnihao.com <br/>
  </code>
 </div>
 
